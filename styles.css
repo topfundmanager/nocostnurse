@@ -1411,7 +1411,7 @@ ol {
 
 /* Payout Card */
 .payout-card {
-    background: linear-gradient(135deg, var(--color-primary-600), var(--color-teal-600));
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-primary-800));
     color: var(--color-white);
     padding: var(--space-8);
     border-radius: var(--radius-2xl);
