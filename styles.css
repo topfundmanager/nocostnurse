@@ -1317,8 +1317,8 @@ ol {
     bottom: 40px;
     width: 2px;
     background: linear-gradient(180deg,
-            var(--color-primary-200) 0%,
-            var(--color-teal-200) 100%);
+            var(--color-primary-100) 0%,
+            var(--color-primary-300) 100%);
 }
 
 @media (min-width: 640px) {
@@ -1350,7 +1350,7 @@ ol {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, var(--color-primary-500), var(--color-teal-500));
+    background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700));
     color: var(--color-white);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
