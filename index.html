@@ -31,13 +31,7 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">
-                <span class="logo-icon">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2" />
-                        <path d="M16 10V22M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                </span>
-                <span class="logo-text">No Cost Nurse</span>
+                <img src="images/nurse_logo_v3_transparent.png" alt="No Cost Nurse Logo">
             </a>
 
             <ul class="nav__menu" id="nav-menu">
@@ -57,7 +51,7 @@
 
             <div class="nav__actions">
                 <a href="#how-it-works" class="nav__secondary-link">How It Works</a>
-                <a href="#questionnaire" class="btn btn--primary btn--sm">Start Questionnaire</a>
+                <a href="#referral-form" class="btn btn--accent btn--sm">Refer for $500</a>
             </div>
 
             <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
@@ -74,18 +68,17 @@
             <div class="hero__background"></div>
             <div class="container hero__container">
                 <div class="hero__content">
-                    <h1 class="hero__title">No Cost Nurse</h1>
-                    <p class="hero__tagline">Connecting Families with Skilled Nurses and CNAs Approved by Medicaid.</p>
+                    <h1 class="hero__title">Refer a Colleague. <br>Help a Family. <br><span
+                            style="color: var(--color-accent-500);">Get Rewarded.</span></h1>
+                    <p class="hero__tagline">The Elite Georgia Nursing Referral Network.</p>
                     <p class="hero__description">
-                        We specialize in providing compassionate in-home nursing care for eligible youth under 18 in
-                        Georgia.
-                        Our Medicaid-approved services ensure families receive the support they need, right where
-                        they're most comfortable—at home.
+                        Earn up to $500 for every skilled nurse or CNA you refer who joins our network to provide
+                        compassionate care for Georgia families. Your expertise changes lives—now it pays forward.
                     </p>
 
                     <div class="hero__cta">
-                        <a href="#questionnaire" class="btn btn--primary btn--lg">Start Questionnaire</a>
-                        <a href="#how-it-works" class="btn btn--outline btn--lg">Learn How It Works</a>
+                        <a href="#questionnaire" class="btn btn--accent btn--lg">Start Your Referral</a>
+                        <a href="#how-it-works" class="btn btn--outline btn--lg">See Payout Details</a>
                     </div>
 
                     <div class="hero__trust">
@@ -99,6 +92,16 @@
                                 </svg>
                             </div>
                             <span>Georgia Focused</span>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-item__icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span>Verified Care Network</span>
                         </div>
                         <div class="trust-item">
                             <div class="trust-item__icon">
@@ -130,10 +133,69 @@
                 </div>
 
                 <div class="hero__image">
-                    <!-- Image placeholder: Hero image -->
-                    <img src="images/hero_nurse_family.png"
-                        alt="A compassionate in-home nurse speaking with a parent in a bright living room"
+                    <img src="/Users/marloweemrys/.gemini/antigravity/brain/4fa1faa7-4bab-4055-ac4d-01d6f7ad2c74/nurse_collaboration_premium_1769013516572.png"
+                        alt="Skilled Georgia nurses collaborating in a modern medical environment"
                         class="hero-image-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Section -->
+        <section class="social-proof">
+            <div class="container">
+                <p class="social-proof__title">Connecting Top Talent with Leading Georgia Facilities</p>
+                <div class="social-proof__grid">
+                    <div class="partner-logo">
+                        <span
+                            style="font-weight: 800; color: var(--color-gray-400); font-size: 1.1rem; letter-spacing: 0.1em;">EMORY
+                            HEALTH</span>
+                    </div>
+                    <div class="partner-logo">
+                        <span
+                            style="font-weight: 800; color: var(--color-gray-400); font-size: 1.1rem; letter-spacing: 0.1em;">PIEDMONT</span>
+                    </div>
+                    <div class="partner-logo">
+                        <span
+                            style="font-weight: 800; color: var(--color-gray-400); font-size: 1.1rem; letter-spacing: 0.1em;">CHOA</span>
+                    </div>
+                    <div class="partner-logo">
+                        <span
+                            style="font-weight: 800; color: var(--color-gray-400); font-size: 1.1rem; letter-spacing: 0.1em;">WELLSTAR</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Freedom Section -->
+        <section class="lifestyle" id="lifestyle">
+            <div class="container lifestyle__container">
+                <div class="lifestyle__content">
+                    <h2 class="section-title">Beyond the Bonus: Why Nurses Refer to Us</h2>
+                    <p class="section-description">
+                        It's more than just a payout. When you refer a colleague, you're helping them find a workplace
+                        that values their time and expertise.
+                    </p>
+                    <ul class="benefit-list">
+                        <li>
+                            <div class="benefit-icon">✔</div>
+                            <div><strong>Flexible Scheduling:</strong> Our network offers peerless control over
+                                work-life balance.</div>
+                        </li>
+                        <li>
+                            <div class="benefit-icon">✔</div>
+                            <div><strong>Premium Pay Scales:</strong> We target families who value high-end, dedicated
+                                care.</div>
+                        </li>
+                        <li>
+                            <div class="benefit-icon">✔</div>
+                            <div><strong>Career Growth:</strong> Access to diverse specialties and advanced clinical
+                                environments.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lifestyle__image">
+                    <img src="/Users/marloweemrys/.gemini/antigravity/brain/4fa1faa7-4bab-4055-ac4d-01d6f7ad2c74/nurse_lifestyle_freedom_1769013566858.png"
+                        alt="A nurse enjoying family time, representing work-life balance" class="hero-image-img">
                 </div>
             </div>
         </section>
@@ -142,60 +204,58 @@
         <section class="eligibility" id="eligibility">
             <div class="container">
                 <div class="eligibility__grid">
-                    <a href="#questionnaire" class="eligibility-card">
+                    <div class="eligibility-card">
                         <div class="eligibility-card__icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5" />
-                                <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" />
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <span class="eligibility-card__label">Under 18</span>
-                    </a>
+                        <span class="eligibility-card__label">RNs & Therapists<br><small
+                                style="font-weight: normal; opacity: 0.7;">$500 Bonus</small></span>
+                    </div>
 
-                    <a href="#questionnaire" class="eligibility-card">
+                    <div class="eligibility-card">
                         <div class="eligibility-card__icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="7" r="3" stroke="currentColor" stroke-width="1.5" />
-                                <path d="M6 21v-2a2 2 0 012-2h8a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" />
-                                <circle cx="8" cy="19" r="2" stroke="currentColor" stroke-width="1.5" />
-                                <circle cx="16" cy="19" r="2" stroke="currentColor" stroke-width="1.5" />
-                                <path d="M8 17v-5h8v5" stroke="currentColor" stroke-width="1.5" />
-                            </svg>
-                        </div>
-                        <span class="eligibility-card__label">Wheelchair Bound</span>
-                    </a>
-
-                    <a href="#questionnaire" class="eligibility-card">
-                        <div class="eligibility-card__icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"
-                                    stroke="currentColor" stroke-width="1.5" />
-                                <rect x="9" y="3" width="6" height="4" rx="1" stroke="currentColor"
-                                    stroke-width="1.5" />
-                                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100-8 4 4 0 000 8z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <span class="eligibility-card__label">Qualifying Conditions</span>
-                    </a>
+                        <span class="eligibility-card__label">CNAs & LPNs<br><small
+                                style="font-weight: normal; opacity: 0.7;">$250 Bonus</small></span>
+                    </div>
 
-                    <a href="#questionnaire" class="eligibility-card">
+                    <div class="eligibility-card">
                         <div class="eligibility-card__icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                                    stroke="currentColor" stroke-width="1.5" />
-                                <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                <path
+                                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                                    fill="currentColor" />
+                            </svg>
+                        </div>
+                        <span class="eligibility-card__label">Families in Need<br><small
+                                style="font-weight: normal; opacity: 0.7;">GA Medicaid Approved</small></span>
+                    </div>
+
+                    <div class="eligibility-card">
+                        <div class="eligibility-card__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" />
+                                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <span class="eligibility-card__label">Georgia + Medicaid</span>
-                    </a>
+                        <span class="eligibility-card__label">Weekly Payouts<br><small
+                                style="font-weight: normal; opacity: 0.7;">Fast Turnaround</small></span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -204,10 +264,10 @@
         <section class="questionnaire" id="questionnaire">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Referral & Eligibility Questionnaire</h2>
+                    <h2 class="section-title">Submit a Referral</h2>
                     <p class="section-description">
-                        Answer a few questions so our team can review and follow up.
-                        Your information helps us determine eligibility and connect families with the care they need.
+                        Refer a colleague or friend in 2 minutes. We'll handle the vetting and placement, and you'll get
+                        rewarded once they start.
                     </p>
                 </div>
 
@@ -221,507 +281,161 @@
                             <div class="progress-steps">
                                 <button type="button" class="progress-step active" data-step="1">
                                     <span class="progress-step__number">1</span>
-                                    <span class="progress-step__label">Screening</span>
+                                    <span class="progress-step__label">Your Info</span>
                                 </button>
                                 <button type="button" class="progress-step" data-step="2">
                                     <span class="progress-step__number">2</span>
-                                    <span class="progress-step__label">Location</span>
+                                    <span class="progress-step__label">Friend's Info</span>
                                 </button>
                                 <button type="button" class="progress-step" data-step="3">
                                     <span class="progress-step__number">3</span>
-                                    <span class="progress-step__label">History</span>
+                                    <span class="progress-step__label">Qualification</span>
                                 </button>
                                 <button type="button" class="progress-step" data-step="4">
                                     <span class="progress-step__number">4</span>
-                                    <span class="progress-step__label">Details</span>
-                                </button>
-                                <button type="button" class="progress-step" data-step="5">
-                                    <span class="progress-step__number">5</span>
-                                    <span class="progress-step__label">Contact</span>
+                                    <span class="progress-step__label">Confirmation</span>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Step 1: Basic Screening -->
+                        <!-- Step 1: Your Information -->
                         <div class="form-step active" data-step="1">
                             <div class="form-step__header">
-                                <h3 class="form-step__title">Basic Screening</h3>
-                                <p class="form-step__description">Help us understand the care needs</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">
-                                    Do you know of anyone under the age of 18 that can benefit from in-home nursing
-                                    care?
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="radio-group">
-                                    <label class="radio-card">
-                                        <input type="radio" name="under18_benefit" value="yes" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">Yes</span>
-                                        </span>
-                                    </label>
-                                    <label class="radio-card">
-                                        <input type="radio" name="under18_benefit" value="no" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">No</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <span class="form-error" id="error-under18_benefit"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">
-                                    Do you know anyone under 18 years old that is wheelchair bound?
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="radio-group">
-                                    <label class="radio-card">
-                                        <input type="radio" name="wheelchair_bound" value="yes" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">Yes</span>
-                                        </span>
-                                    </label>
-                                    <label class="radio-card">
-                                        <input type="radio" name="wheelchair_bound" value="no" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">No</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <span class="form-error" id="error-wheelchair_bound"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">
-                                    Do you or anyone you know have a child with these conditions?
-                                    <span class="form-hint">Select all that apply</span>
-                                </label>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-card">
-                                        <input type="checkbox" name="conditions" value="congenital">
-                                        <span class="checkbox-card__content">
-                                            <span class="checkbox-card__indicator">
-                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                                    <path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </span>
-                                            <span class="checkbox-card__label">Congenital disorder (e.g., congenital
-                                                heart disease, spina bifida)</span>
-                                        </span>
-                                    </label>
-                                    <label class="checkbox-card">
-                                        <input type="checkbox" name="conditions" value="neurological">
-                                        <span class="checkbox-card__content">
-                                            <span class="checkbox-card__indicator">
-                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                                    <path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </span>
-                                            <span class="checkbox-card__label">Neurological conditions (e.g., cerebral
-                                                palsy, epilepsy)</span>
-                                        </span>
-                                    </label>
-                                    <label class="checkbox-card">
-                                        <input type="checkbox" name="conditions" value="respiratory">
-                                        <span class="checkbox-card__content">
-                                            <span class="checkbox-card__indicator">
-                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                                    <path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </span>
-                                            <span class="checkbox-card__label">Respiratory issues (e.g., tracheostomy
-                                                dependence, chronic lung disease)</span>
-                                        </span>
-                                    </label>
-                                    <label class="checkbox-card">
-                                        <input type="checkbox" name="conditions" value="immune">
-                                        <span class="checkbox-card__content">
-                                            <span class="checkbox-card__indicator">
-                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                                    <path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </span>
-                                            <span class="checkbox-card__label">Immune deficiencies</span>
-                                        </span>
-                                    </label>
-                                    <label class="checkbox-card">
-                                        <input type="checkbox" name="conditions" value="feeding">
-                                        <span class="checkbox-card__content">
-                                            <span class="checkbox-card__indicator">
-                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                                    <path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </span>
-                                            <span class="checkbox-card__label">Feeding or digestive disorders requiring
-                                                tube feedings</span>
-                                        </span>
-                                    </label>
-                                    <label class="checkbox-card">
-                                        <input type="checkbox" name="conditions" value="cardiovascular">
-                                        <span class="checkbox-card__content">
-                                            <span class="checkbox-card__indicator">
-                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                                    <path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="2"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </span>
-                                            <span class="checkbox-card__label">Cardiovascular conditions</span>
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 2: Location & Coverage -->
-                        <div class="form-step" data-step="2">
-                            <div class="form-step__header">
-                                <h3 class="form-step__title">Location & Coverage</h3>
-                                <p class="form-step__description">Verify service area and insurance</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">
-                                    Does the individual needing care live in Georgia?
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="radio-group">
-                                    <label class="radio-card">
-                                        <input type="radio" name="georgia_resident" value="yes" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">Yes</span>
-                                        </span>
-                                    </label>
-                                    <label class="radio-card">
-                                        <input type="radio" name="georgia_resident" value="no" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">No</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <span class="form-error" id="error-georgia_resident"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">
-                                    Does the individual needing care have Medicaid?
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="radio-group">
-                                    <label class="radio-card">
-                                        <input type="radio" name="has_medicaid" value="yes" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">Yes</span>
-                                        </span>
-                                    </label>
-                                    <label class="radio-card">
-                                        <input type="radio" name="has_medicaid" value="no" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">No</span>
-                                        </span>
-                                    </label>
-                                    <label class="radio-card">
-                                        <input type="radio" name="has_medicaid" value="unsure" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">Not Sure</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <span class="form-error" id="error-has_medicaid"></span>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Referral Source & History -->
-                        <div class="form-step" data-step="3">
-                            <div class="form-step__header">
-                                <h3 class="form-step__title">Referral Source & History</h3>
-                                <p class="form-step__description">Tell us how you found us and any prior experience</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label" for="referral_source">
-                                    How did you learn about No Cost Nurse's in-home nursing services?
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="select-wrapper">
-                                    <select name="referral_source" id="referral_source" class="form-select" required>
-                                        <option value="">Select an option</option>
-                                        <option value="friend_family">Friend or Family</option>
-                                        <option value="social_media">Social Media</option>
-                                        <option value="search_engine">Search Engine</option>
-                                        <option value="clinic_hospital">Clinic or Hospital</option>
-                                        <option value="school">School</option>
-                                        <option value="community_program">Community Program</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    <span class="select-arrow">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                </div>
-                                <span class="form-error" id="error-referral_source"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">
-                                    Have you or the individual needing care previously used in-home nursing services?
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="radio-group">
-                                    <label class="radio-card">
-                                        <input type="radio" name="previous_services" value="yes" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">Yes</span>
-                                        </span>
-                                    </label>
-                                    <label class="radio-card">
-                                        <input type="radio" name="previous_services" value="no" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">No</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <span class="form-error" id="error-previous_services"></span>
-                            </div>
-
-                            <div class="form-group conditional-field" id="previous_experience_group"
-                                style="display: none;">
-                                <label class="form-label" for="previous_experience">
-                                    Please describe your experience
-                                </label>
-                                <textarea name="previous_experience" id="previous_experience" class="form-textarea"
-                                    rows="4"
-                                    placeholder="Share any details about your previous in-home nursing experience..."></textarea>
-                            </div>
-                        </div>
-
-                        <!-- Step 4: Relationship & Next Steps -->
-                        <div class="form-step" data-step="4">
-                            <div class="form-step__header">
-                                <h3 class="form-step__title">Relationship & Next Steps</h3>
-                                <p class="form-step__description">Help us understand how to best assist you</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label" for="relationship">
-                                    What is your relationship to the individual needing care?
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="select-wrapper">
-                                    <select name="relationship" id="relationship" class="form-select" required>
-                                        <option value="">Select your relationship</option>
-                                        <option value="self">Self</option>
-                                        <option value="parent_guardian">Parent/Guardian</option>
-                                        <option value="family_member">Family Member</option>
-                                        <option value="friend">Friend</option>
-                                        <option value="caregiver">Caregiver</option>
-                                        <option value="case_worker">Case Worker</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    <span class="select-arrow">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                </div>
-                                <span class="form-error" id="error-relationship"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">
-                                    Would you be interested in a consultation to discuss your in-home nursing needs
-                                    further?
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="radio-group">
-                                    <label class="radio-card">
-                                        <input type="radio" name="wants_consultation" value="yes" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">Yes, I'd like a consultation</span>
-                                        </span>
-                                    </label>
-                                    <label class="radio-card">
-                                        <input type="radio" name="wants_consultation" value="no" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__label">Not at this time</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <span class="form-error" id="error-wants_consultation"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">
-                                    How would you prefer to be contacted for follow-up?
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="radio-group radio-group--horizontal">
-                                    <label class="radio-card radio-card--compact">
-                                        <input type="radio" name="contact_method" value="email" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__icon">
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                    <rect x="2" y="4" width="16" height="12" rx="2"
-                                                        stroke="currentColor" stroke-width="1.5" />
-                                                    <path d="M2 6l8 5 8-5" stroke="currentColor" stroke-width="1.5"
-                                                        stroke-linecap="round" />
-                                                </svg>
-                                            </span>
-                                            <span class="radio-card__label">Email</span>
-                                        </span>
-                                    </label>
-                                    <label class="radio-card radio-card--compact">
-                                        <input type="radio" name="contact_method" value="phone" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__icon">
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                    <path
-                                                        d="M3 4.5A1.5 1.5 0 014.5 3h2.879a1.5 1.5 0 011.342.829l1.057 2.115a1.5 1.5 0 01-.203 1.631l-1.31 1.638a.75.75 0 00-.078.857 10.5 10.5 0 004.743 4.743.75.75 0 00.857-.078l1.638-1.31a1.5 1.5 0 011.631-.203l2.115 1.057a1.5 1.5 0 01.829 1.342V15.5a1.5 1.5 0 01-1.5 1.5h-1C7.716 17 3 12.284 3 6.5v-2z"
-                                                        stroke="currentColor" stroke-width="1.5" />
-                                                </svg>
-                                            </span>
-                                            <span class="radio-card__label">Phone</span>
-                                        </span>
-                                    </label>
-                                    <label class="radio-card radio-card--compact">
-                                        <input type="radio" name="contact_method" value="text" required>
-                                        <span class="radio-card__content">
-                                            <span class="radio-card__indicator"></span>
-                                            <span class="radio-card__icon">
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                                    <path d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H7l-4 3V5z"
-                                                        stroke="currentColor" stroke-width="1.5" />
-                                                    <path d="M7 8h6M7 11h4" stroke="currentColor" stroke-width="1.5"
-                                                        stroke-linecap="round" />
-                                                </svg>
-                                            </span>
-                                            <span class="radio-card__label">Text</span>
-                                        </span>
-                                    </label>
-                                </div>
-                                <span class="form-error" id="error-contact_method"></span>
-                            </div>
-                        </div>
-
-                        <!-- Step 5: Contact Details -->
-                        <div class="form-step" data-step="5">
-                            <div class="form-step__header">
-                                <h3 class="form-step__title">Contact Details</h3>
-                                <p class="form-step__description">How can we reach you?</p>
+                                <h3 class="form-step__title">Your Information</h3>
+                                <p class="form-step__description">Tell us who is submitting this referral</p>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label class="form-label" for="first_name">
-                                        First Name
-                                        <span class="required">*</span>
-                                    </label>
-                                    <input type="text" name="first_name" id="first_name" class="form-input"
-                                        placeholder="Enter your first name" required autocomplete="given-name">
-                                    <span class="form-error" id="error-first_name"></span>
+                                    <label class="form-label" for="nominator_first_name">First Name <span
+                                            class="required">*</span></label>
+                                    <input type="text" name="nominator_first_name" id="nominator_first_name"
+                                        class="form-input" placeholder="Your first name" required>
                                 </div>
-
                                 <div class="form-group">
-                                    <label class="form-label" for="last_name">
-                                        Last Name
-                                        <span class="required">*</span>
-                                    </label>
-                                    <input type="text" name="last_name" id="last_name" class="form-input"
-                                        placeholder="Enter your last name" required autocomplete="family-name">
-                                    <span class="form-error" id="error-last_name"></span>
+                                    <label class="form-label" for="nominator_last_name">Last Name <span
+                                            class="required">*</span></label>
+                                    <input type="text" name="nominator_last_name" id="nominator_last_name"
+                                        class="form-input" placeholder="Your last name" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label" for="email">
-                                    Email Address
-                                    <span class="required">*</span>
-                                </label>
-                                <input type="email" name="email" id="email" class="form-input"
-                                    placeholder="your@email.com" required autocomplete="email">
-                                <span class="form-error" id="error-email"></span>
+                                <label class="form-label" for="nominator_email">Email Address <span
+                                        class="required">*</span></label>
+                                <input type="email" name="nominator_email" id="nominator_email" class="form-input"
+                                    placeholder="your@email.com" required>
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label" for="phone">
-                                    Phone Number
-                                    <span class="required">*</span>
-                                </label>
-                                <input type="tel" name="phone" id="phone" class="form-input"
-                                    placeholder="(555) 555-5555" required autocomplete="tel">
-                                <span class="form-error" id="error-phone"></span>
+                                <label class="form-label" for="nominator_phone">Phone Number <span
+                                        class="required">*</span></label>
+                                <input type="tel" name="nominator_phone" id="nominator_phone" class="form-input"
+                                    placeholder="(555) 555-5555" required>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Friend / Colleague Information -->
+                        <div class="form-step" data-step="2">
+                            <div class="form-step__header">
+                                <h3 class="form-step__title">Friend / Colleague's Info</h3>
+                                <p class="form-step__description">Who are you referring today?</p>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="nominee_first_name">Friend's First Name <span
+                                            class="required">*</span></label>
+                                    <input type="text" name="nominee_first_name" id="nominee_first_name"
+                                        class="form-input" placeholder="Their first name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="nominee_last_name">Friend's Last Name <span
+                                            class="required">*</span></label>
+                                    <input type="text" name="nominee_last_name" id="nominee_last_name"
+                                        class="form-input" placeholder="Their last name" required>
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label" for="best_time">
-                                    Best Time to Reach You
-                                    <span class="form-hint">Optional</span>
-                                </label>
+                                <label class="form-label" for="nominee_profession">What is their profession? <span
+                                        class="required">*</span></label>
                                 <div class="select-wrapper">
-                                    <select name="best_time" id="best_time" class="form-select">
-                                        <option value="">No preference</option>
-                                        <option value="morning">Morning (8am - 12pm)</option>
-                                        <option value="afternoon">Afternoon (12pm - 5pm)</option>
-                                        <option value="evening">Evening (5pm - 8pm)</option>
+                                    <select name="nominee_profession" id="nominee_profession" class="form-select"
+                                        required>
+                                        <option value="">Select profession</option>
+                                        <option value="rn">Registered Nurse (RN)</option>
+                                        <option value="rt">Respiratory Therapist (RT)</option>
+                                        <option value="cna">Certified Nursing Assistant (CNA)</option>
+                                        <option value="lpn">Licensed Practical Nurse (LPN)</option>
+                                        <option value="therapist">Physical/Occupational Therapist</option>
                                     </select>
-                                    <span class="select-arrow">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="nominee_phone">Friend's Phone Number <span
+                                        class="required">*</span></label>
+                                <input type="tel" name="nominee_phone" id="nominee_phone" class="form-input"
+                                    placeholder="(555) 555-5555" required>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Qualification Details -->
+                        <div class="form-step" data-step="3">
+                            <div class="form-step__header">
+                                <h3 class="form-step__title">Qualification Verification</h3>
+                                <p class="form-step__description">Help us confirm their eligibility for the network</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Are they currently Medicaid approved in the state of Georgia?
+                                    <span class="required">*</span></label>
+                                <div class="radio-group">
+                                    <label class="radio-card">
+                                        <input type="radio" name="medicaid_approved" value="yes" required>
+                                        <span class="radio-card__content"><span class="radio-card__label">Yes,
+                                                verified</span></span>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="medicaid_approved" value="unsure" required>
+                                        <span class="radio-card__content"><span class="radio-card__label">I'm not
+                                                sure</span></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="referral_context">Tell us a bit about why they'd be a
+                                    great fit (Optional)</label>
+                                <textarea name="referral_context" id="referral_context" class="form-textarea" rows="3"
+                                    placeholder="e.g., 5 years pediatric experience, highly compassionate..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Final Confirmation -->
+                        <div class="form-step" data-step="4">
+                            <div class="form-step__header">
+                                <h3 class="form-step__title">Confirm & Submit</h3>
+                                <p class="form-step__description">Review your referral submission</p>
                             </div>
 
                             <div class="form-group">
                                 <label class="checkbox-consent">
-                                    <input type="checkbox" name="consent" id="consent" required>
-                                    <span class="checkbox-consent__indicator">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                            <path d="M3 7l3 3 5-5" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
+                                    <input type="checkbox" name="referral_consent" id="referral_consent" required>
                                     <span class="checkbox-consent__label">
-                                        I agree to be contacted by No Cost Nurse regarding this submission.
-                                        <span class="required">*</span>
+                                        I certify that I have my friend/colleague's permission to share their contact
+                                        information with No Cost Nurse.
                                     </span>
                                 </label>
-                                <span class="form-error" id="error-consent"></span>
                             </div>
 
-                            <div class="form-disclaimer">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1" />
-                                    <path d="M8 7v4M8 5v.5" stroke="currentColor" stroke-width="1.5"
-                                        stroke-linecap="round" />
-                                </svg>
-                                <p>This questionnaire helps us understand eligibility and needs. Not medical advice.</p>
+                            <div class="form-disclaimer"
+                                style="background: var(--color-primary-50); padding: var(--space-4); border-radius: var(--radius-md); margin-bottom: var(--space-6);">
+                                <p style="font-size: var(--font-size-sm); color: var(--color-primary-800);">
+                                    <strong>Note:</strong> Referral bonuses are paid out once the nominee completes
+                                    their first successful placement hours.
+                                </p>
                             </div>
                         </div>
 
@@ -785,173 +499,120 @@
                 <div class="section-header">
                     <h2 class="section-title">How It Works</h2>
                     <p class="section-description">
-                        Our referral process is simple and rewarding. Here's what to expect when you connect a family
-                        with our services.
+                        Our referral process is simple, transparent, and rewarding. Here's how we turn your connections
+                        into clinical impact.
                     </p>
                 </div>
 
-                <div class="how-it-works__content">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-item__marker">
-                                <span class="timeline-item__number">1</span>
-                            </div>
-                            <div class="timeline-item__content">
-                                <div class="timeline-item__icon">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                        <path d="M12 6H8a2 2 0 00-2 2v16a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2h-4"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <rect x="10" y="4" width="12" height="4" rx="1" stroke="currentColor"
-                                            stroke-width="1.5" />
-                                        <path d="M10 14h12M10 18h12M10 22h8" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </div>
-                                <h3 class="timeline-item__title">Fill Out the Questionnaire</h3>
-                                <p class="timeline-item__description">
-                                    Begin by completing our detailed questionnaire. This form is designed to gather
-                                    essential information about the referral, ensuring we understand their needs and
-                                    circumstances. Please provide as much detail as possible, as this will assist our
-                                    staff in making an informed decision.
-                                </p>
-                            </div>
+                <div class="process-grid">
+                    <!-- Step 1 -->
+                    <div class="process-card">
+                        <div class="process-card__number">1</div>
+                        <div class="process-card__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M18.5 2.5a2.121 2.121 0 113 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
                         </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-item__marker">
-                                <span class="timeline-item__number">2</span>
-                            </div>
-                            <div class="timeline-item__content">
-                                <div class="timeline-item__icon">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="16" cy="10" r="4" stroke="currentColor" stroke-width="1.5" />
-                                        <path d="M8 26c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                        <path d="M22 14l4 4m0-4l-4 4" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </div>
-                                <h3 class="timeline-item__title">Staff Contact</h3>
-                                <p class="timeline-item__description">
-                                    Once your questionnaire is submitted, our dedicated team will review the information
-                                    and reach out to the referral you provided. Our staff is trained to communicate
-                                    effectively and compassionately, ensuring that potential clients feel supported
-                                    throughout the process.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-item__marker">
-                                <span class="timeline-item__number">3</span>
-                            </div>
-                            <div class="timeline-item__content">
-                                <div class="timeline-item__icon">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                        <circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.5" />
-                                        <path d="M12 16l3 3 5-5" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <h3 class="timeline-item__title">Acceptance of Referral</h3>
-                                <p class="timeline-item__description">
-                                    After our staff speaks with the referral, they will assess the case and determine if
-                                    it meets our criteria for acceptance. This step is crucial, as we strive to provide
-                                    services to those who will benefit most from our offerings.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-item__marker">
-                                <span class="timeline-item__number">4</span>
-                            </div>
-                            <div class="timeline-item__content">
-                                <div class="timeline-item__icon">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                        <rect x="6" y="8" width="20" height="16" rx="2" stroke="currentColor"
-                                            stroke-width="1.5" />
-                                        <path d="M10 16h4M18 16h4M10 20h2" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                        <circle cx="16" cy="14" r="2" stroke="currentColor" stroke-width="1.5" />
-                                    </svg>
-                                </div>
-                                <h3 class="timeline-item__title">Payout Structure</h3>
-                                <p class="timeline-item__description">
-                                    For every referral that is accepted into our program, you will receive a payout
-                                    ranging from $500 to $2,000. The exact amount of the payout will depend on several
-                                    factors, including the specifics of each case and the level of support required.
-                                    Rest assured, our goal is to reward you fairly for helping us connect with
-                                    individuals who can benefit from our services.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-item__marker">
-                                <span class="timeline-item__number">5</span>
-                            </div>
-                            <div class="timeline-item__content">
-                                <div class="timeline-item__icon">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                        <path d="M6 10a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H12l-6 4V10z"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <path d="M10 13h12M10 17h8" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </div>
-                                <h3 class="timeline-item__title">Continuous Communication</h3>
-                                <p class="timeline-item__description">
-                                    Throughout the referral process, we will keep you updated on its status. You will
-                                    receive notifications upon acceptance and any relevant follow-up regarding the
-                                    referral's journey within our program.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-item__marker">
-                                <span class="timeline-item__number">6</span>
-                            </div>
-                            <div class="timeline-item__content">
-                                <div class="timeline-item__icon">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                        <path
-                                            d="M16 28c6.627 0 12-5.373 12-12S22.627 4 16 4 4 9.373 4 16s5.373 12 12 12z"
-                                            stroke="currentColor" stroke-width="1.5" />
-                                        <path d="M16 8v4l3 3" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                        <path d="M12 20l4 4 4-4" stroke="currentColor" stroke-width="1.5"
-                                            stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </div>
-                                <h3 class="timeline-item__title">Your Impact</h3>
-                                <p class="timeline-item__description">
-                                    By participating in our referral program, you are not only earning a financial
-                                    reward but also making a significant impact on someone's life. Your referrals help
-                                    us extend our outreach and provide valuable services to those in need.
-                                </p>
-                            </div>
-                        </div>
+                        <h3 class="process-card__title">Submit Referral</h3>
+                        <p class="process-card__description">Fill out our quick form with your colleague's details.</p>
                     </div>
 
-                    <div class="how-it-works__sidebar">
-                        <!-- Payout Callout Card -->
-                        <div class="payout-card">
-                            <div class="payout-card__badge">Referral Reward</div>
-                            <div class="payout-card__amount">$500 – $2,000</div>
-                            <p class="payout-card__description">
-                                Earn for every accepted referral. The exact payout depends on case specifics and support
-                                level required.
-                            </p>
-                            <a href="#questionnaire" class="btn btn--primary btn--block">Start a Referral</a>
+                    <!-- Step 2 -->
+                    <div class="process-card">
+                        <div class="process-card__number">2</div>
+                        <div class="process-card__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
                         </div>
-
-                        <!-- Image Placeholder -->
-                        <img src="images/nurse_tablet_consultation.png"
-                            alt="A nurse and a family reviewing a tablet form together in a home environment"
-                            class="sidebar-image-img">
+                        <h3 class="process-card__title">Quick Outreach</h3>
+                        <p class="process-card__description">We contact them within 24 hours to discuss opportunities.
+                        </p>
                     </div>
+
+                    <!-- Step 3 -->
+                    <div class="process-card">
+                        <div class="process-card__number">3</div>
+                        <div class="process-card__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3 class="process-card__title">Vetting Process</h3>
+                        <p class="process-card__description">We verify credentials and GA Medicaid authorization.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="process-card">
+                        <div class="process-card__number">4</div>
+                        <div class="process-card__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M23 21v-2a4 4 0 00-3-3.87" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3 class="process-card__title">Family Matching</h3>
+                        <p class="process-card__description">Candidates are matched with local families in need.</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="process-card">
+                        <div class="process-card__number">5</div>
+                        <div class="process-card__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3 class="process-card__title">Placement Success</h3>
+                        <p class="process-card__description">Work begins, providing critical support to families.</p>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="process-card">
+                        <div class="process-card__number">6</div>
+                        <div class="process-card__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor"
+                                    stroke-width="2" />
+                                <line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="2" />
+                                <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <h3 class="process-card__title">Earn Bonus</h3>
+                        <p class="process-card__description">Receive your $250 - $500 bonus for your successful
+                            referral.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="payout-callout">
+                    <div class="payout-callout__title">Maximum Reward Per Referral</div>
+                    <div class="payout-callout__amount">$500</div>
+                    <p style="font-size: var(--font-size-lg); opacity: 0.9;">Earn $500 for RN/RT/Therapists or $250 for
+                        CNAs/LPNs</p>
+                    <a href="#questionnaire" class="btn btn--white"
+                        style="margin-top: var(--space-8); background: var(--color-white); color: var(--color-primary-600);">Start
+                        Referring Now</a>
                 </div>
             </div>
         </section>
@@ -969,7 +630,7 @@
                 <div class="faq__grid">
                     <div class="faq-item">
                         <button class="faq-item__question" aria-expanded="false">
-                            <span>Who qualifies for in-home nursing care?</span>
+                            <span>How do I get paid for a referral?</span>
                             <span class="faq-item__icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5"
@@ -979,17 +640,16 @@
                         </button>
                         <div class="faq-item__answer">
                             <p>
-                                In-home nursing care is typically available for children under 18 who have qualifying
-                                medical conditions such as congenital disorders, neurological conditions, respiratory
-                                issues, immune deficiencies, feeding disorders, or cardiovascular conditions. The
-                                individual must have Medicaid coverage and reside in Georgia.
+                                Once your referred colleague completes their first 40 hours of placement in our network,
+                                your bonus ($250-$500 depending on specialty) is processed. We issue payments via direct
+                                deposit or professional check within 5 business days of the milestone.
                             </p>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-item__question" aria-expanded="false">
-                            <span>Do you only serve Georgia?</span>
+                            <span>Who can I refer to the network?</span>
                             <span class="faq-item__icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5"
@@ -999,16 +659,16 @@
                         </button>
                         <div class="faq-item__answer">
                             <p>
-                                Yes, at this time our in-home nursing services are focused exclusively on families
-                                residing in Georgia. This allows us to provide dedicated support and build strong
-                                relationships with local healthcare networks and Medicaid programs.
+                                We are looking for high-quality RNs, LPNs, CNAs, and Therapists (OT/PT/RT) who are
+                                authorized to work in Georgia. Medicaid approval is a plus, but we can assist qualified
+                                candidates with the enrollment process if they meet our clinical standards.
                             </p>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-item__question" aria-expanded="false">
-                            <span>Is Medicaid required?</span>
+                            <span>Is there a limit to how many people I can refer?</span>
                             <span class="faq-item__icon">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5"
@@ -1018,9 +678,9 @@
                         </button>
                         <div class="faq-item__answer">
                             <p>
-                                Medicaid is the primary insurance we work with for in-home nursing services. If you're
-                                unsure about Medicaid eligibility, please complete the questionnaire and our team can
-                                help guide you through the process or connect you with resources for enrollment.
+                                Absolutely not. Many of our network members earn significant secondary income by
+                                consistently referring talented colleagues. As long as the candidate is placed and meets
+                                the hour milestone, you'll receive your bonus every single time.
                             </p>
                         </div>
                     </div>
@@ -1114,15 +774,7 @@
             <div class="footer__main">
                 <div class="footer__brand">
                     <a href="#" class="footer__logo">
-                        <span class="logo-icon">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2" />
-                                <path d="M16 10V22M10 16H22" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </span>
-                        <span class="logo-text">No Cost Nurse</span>
+                        <img src="images/nurse_logo_v3_transparent.png" alt="No Cost Nurse Logo">
                     </a>
                     <p class="footer__tagline">Compassionate in-home support for eligible families.</p>
                 </div>
@@ -1137,7 +789,7 @@
                                 <path d="M2 6l8 5 8-5" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" />
                             </svg>
-                            <a href="mailto:info@nocostnurse.com">info@nocostnurse.com</a>
+                            <a href="mailto:jccaringservices@gmail.com">jccaringservices@gmail.com</a>
                         </li>
                         <li>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -1145,7 +797,7 @@
                                     d="M3 4.5A1.5 1.5 0 014.5 3h2.879a1.5 1.5 0 011.342.829l1.057 2.115a1.5 1.5 0 01-.203 1.631l-1.31 1.638a.75.75 0 00-.078.857 10.5 10.5 0 004.743 4.743.75.75 0 00.857-.078l1.638-1.31a1.5 1.5 0 011.631-.203l2.115 1.057a1.5 1.5 0 01.829 1.342V15.5a1.5 1.5 0 01-1.5 1.5h-1C7.716 17 3 12.284 3 6.5v-2z"
                                     stroke="currentColor" stroke-width="1.5" />
                             </svg>
-                            <a href="tel:+1234567890">(123) 456-7890</a>
+                            <a href="tel:+16788235817">+1 (678) 823-5817</a>
                         </li>
                     </ul>
                 </div>
@@ -1164,7 +816,7 @@
                     see our privacy policy for details on how we handle your information.
                 </p>
                 <p class="footer__copyright">
-                    &copy; 2024 No Cost Nurse. All rights reserved.
+                    &copy; 2026 No Cost Nurse. All rights reserved.
                 </p>
             </div>
         </div>

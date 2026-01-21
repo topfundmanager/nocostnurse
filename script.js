@@ -3,7 +3,7 @@
  * Multi-step form, FAQ accordion, smooth scrolling, and more
  */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize all components
     initHeader();
     initMobileNav();
@@ -36,7 +36,7 @@ function initHeader() {
         ticking = false;
     }
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (!ticking) {
             window.requestAnimationFrame(updateHeader);
             ticking = true;
@@ -53,7 +53,7 @@ function initMobileNav() {
 
     if (!toggle || !menu) return;
 
-    toggle.addEventListener('click', function() {
+    toggle.addEventListener('click', function () {
         toggle.classList.toggle('active');
         menu.classList.toggle('mobile-active');
 
@@ -63,15 +63,15 @@ function initMobileNav() {
     });
 
     // Close menu when clicking a link
-    menu.querySelectorAll('.nav__link').forEach(function(link) {
-        link.addEventListener('click', function() {
+    menu.querySelectorAll('.nav__link').forEach(function (link) {
+        link.addEventListener('click', function () {
             toggle.classList.remove('active');
             menu.classList.remove('mobile-active');
         });
     });
 
     // Close menu on escape
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && menu.classList.contains('mobile-active')) {
             toggle.classList.remove('active');
             menu.classList.remove('mobile-active');
@@ -83,8 +83,8 @@ function initMobileNav() {
  * Smooth scroll for anchor links
  */
 function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href === '#') return;
 
@@ -130,8 +130,8 @@ function initMultiStepForm() {
     updateButtons();
 
     // Progress step clicks (allow navigation to completed steps)
-    progressSteps.forEach(function(stepBtn) {
-        stepBtn.addEventListener('click', function() {
+    progressSteps.forEach(function (stepBtn) {
+        stepBtn.addEventListener('click', function () {
             const targetStep = parseInt(this.dataset.step);
 
             // Only allow going back or to current step
@@ -142,7 +142,7 @@ function initMultiStepForm() {
     });
 
     // Next button
-    btnNext.addEventListener('click', function() {
+    btnNext.addEventListener('click', function () {
         if (validateStep(currentStep)) {
             if (currentStep < totalSteps) {
                 goToStep(currentStep + 1);
@@ -151,14 +151,14 @@ function initMultiStepForm() {
     });
 
     // Previous button
-    btnPrev.addEventListener('click', function() {
+    btnPrev.addEventListener('click', function () {
         if (currentStep > 1) {
             goToStep(currentStep - 1);
         }
     });
 
     // Form submission
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
 
         if (validateStep(currentStep)) {
@@ -168,38 +168,59 @@ function initMultiStepForm() {
     });
 
     function goToStep(step) {
-        // Hide current step
-        steps[currentStep - 1].classList.remove('active');
-        progressSteps[currentStep - 1].classList.remove('active');
-        progressSteps[currentStep - 1].classList.add('completed');
+        const currentStepEl = steps[currentStep - 1];
+        const nextStepEl = steps[step - 1];
 
-        // Show new step
-        currentStep = step;
-        steps[currentStep - 1].classList.add('active');
-        progressSteps[currentStep - 1].classList.add('active');
+        // Fade out current step
+        currentStepEl.style.opacity = '0';
+        currentStepEl.style.transform = 'translateY(-10px)';
 
-        // Update UI
-        updateProgress();
-        updateButtons();
+        setTimeout(() => {
+            // Hide current step
+            currentStepEl.classList.remove('active');
+            progressSteps[currentStep - 1].classList.remove('active');
+            progressSteps[currentStep - 1].classList.add('completed');
 
-        // Scroll to form
-        const formContainer = document.querySelector('.form-container');
-        if (formContainer) {
-            const headerHeight = document.getElementById('header').offsetHeight;
-            const targetPosition = formContainer.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
+            // Show new step
+            currentStep = step;
+            nextStepEl.classList.add('active');
+            progressSteps[currentStep - 1].classList.add('active');
+
+            // Fade in new step
+            nextStepEl.style.opacity = '0';
+            nextStepEl.style.transform = 'translateY(10px)';
+            nextStepEl.style.transition = 'all 0.4s ease';
+
+            // Force reflow
+            nextStepEl.offsetHeight;
+
+            nextStepEl.style.opacity = '1';
+            nextStepEl.style.transform = 'translateY(0)';
+
+            // Update UI
+            updateProgress();
+            updateButtons();
+
+            // Scroll to form
+            const formContainer = document.querySelector('.form-container');
+            if (formContainer) {
+                const headerHeight = document.getElementById('header').offsetHeight;
+                const targetPosition = formContainer.getBoundingClientRect().top + window.pageYOffset - headerHeight - 40;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 300);
     }
+
 
     function updateProgress() {
         const progress = (currentStep / totalSteps) * 100;
         progressFill.style.width = progress + '%';
 
         // Update step states
-        progressSteps.forEach(function(step, index) {
+        progressSteps.forEach(function (step, index) {
             const stepNum = index + 1;
             step.classList.remove('active', 'completed');
 
@@ -231,14 +252,14 @@ function initMultiStepForm() {
         let isValid = true;
 
         // Clear previous errors
-        currentStepEl.querySelectorAll('.form-error').forEach(function(error) {
+        currentStepEl.querySelectorAll('.form-error').forEach(function (error) {
             error.textContent = '';
         });
-        currentStepEl.querySelectorAll('.error').forEach(function(field) {
+        currentStepEl.querySelectorAll('.error').forEach(function (field) {
             field.classList.remove('error');
         });
 
-        requiredFields.forEach(function(field) {
+        requiredFields.forEach(function (field) {
             const fieldName = field.name;
             const fieldType = field.type;
             let fieldValid = true;
@@ -247,7 +268,7 @@ function initMultiStepForm() {
             if (fieldType === 'radio') {
                 // Check if any radio in this group is selected
                 const radioGroup = currentStepEl.querySelectorAll('input[name="' + fieldName + '"]');
-                const isChecked = Array.from(radioGroup).some(function(radio) {
+                const isChecked = Array.from(radioGroup).some(function (radio) {
                     return radio.checked;
                 });
 
@@ -255,10 +276,10 @@ function initMultiStepForm() {
                     fieldValid = false;
                     errorMessage = 'Please select an option';
                 }
-            } else if (fieldType === 'checkbox' && field.id === 'consent') {
+            } else if (fieldType === 'checkbox' && (field.name === 'consent' || field.name === 'referral_consent')) {
                 if (!field.checked) {
                     fieldValid = false;
-                    errorMessage = 'You must agree to be contacted';
+                    errorMessage = field.name === 'referral_consent' ? 'You must confirm permission to share' : 'You must agree to be contacted';
                 }
             } else if (fieldType === 'email') {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -315,10 +336,32 @@ function initMultiStepForm() {
         `;
 
         // Simulate API call
-        setTimeout(function() {
+        setTimeout(function () {
             // Hide form, show success
             form.style.display = 'none';
             formSuccess.style.display = 'block';
+
+            // Update success message for referral
+            formSuccess.innerHTML = `
+                <div class="form-success__icon">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" />
+                        <path d="M20 32l8 8 16-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h3 class="form-success__title">Referral Submitted!</h3>
+                <p class="form-success__message">
+                    Thank you for connecting us with your colleague. Our professional vetting team will reach out to them within 24 hours.
+                </p>
+                <div style="background: var(--color-gray-50); padding: var(--space-6); border-radius: var(--radius-lg); margin-top: var(--space-8);">
+                    <p style="font-weight: var(--font-weight-bold); margin-bottom: var(--space-2);">What's next?</p>
+                    <ul style="text-align: left; font-size: var(--font-size-sm); display: inline-block;">
+                        <li>• Confirmation email sent to you</li>
+                        <li>• Candidate interview scheduled</li>
+                        <li>• Payout notification upon first shift</li>
+                    </ul>
+                </div>
+            `;
 
             // Scroll to success message
             const headerHeight = document.getElementById('header').offsetHeight;
@@ -331,14 +374,14 @@ function initMultiStepForm() {
     }
 
     // Add real-time validation feedback
-    form.querySelectorAll('input, select, textarea').forEach(function(field) {
-        field.addEventListener('blur', function() {
+    form.querySelectorAll('input, select, textarea').forEach(function (field) {
+        field.addEventListener('blur', function () {
             if (field.hasAttribute('required')) {
                 validateField(field);
             }
         });
 
-        field.addEventListener('input', function() {
+        field.addEventListener('input', function () {
             // Clear error on input
             const errorEl = document.getElementById('error-' + field.name);
             if (errorEl) {
@@ -379,15 +422,15 @@ function initMultiStepForm() {
 function initFAQAccordion() {
     const faqItems = document.querySelectorAll('.faq-item');
 
-    faqItems.forEach(function(item) {
+    faqItems.forEach(function (item) {
         const question = item.querySelector('.faq-item__question');
         const answer = item.querySelector('.faq-item__answer');
 
-        question.addEventListener('click', function() {
+        question.addEventListener('click', function () {
             const isActive = item.classList.contains('active');
 
             // Close all other items
-            faqItems.forEach(function(otherItem) {
+            faqItems.forEach(function (otherItem) {
                 if (otherItem !== item) {
                     otherItem.classList.remove('active');
                     otherItem.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
@@ -400,7 +443,7 @@ function initFAQAccordion() {
         });
 
         // Keyboard support
-        question.addEventListener('keydown', function(e) {
+        question.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 question.click();
@@ -413,33 +456,17 @@ function initFAQAccordion() {
  * Conditional fields (show/hide based on selections)
  */
 function initConditionalFields() {
-    // Previous services -> experience textarea
-    const previousServicesRadios = document.querySelectorAll('input[name="previous_services"]');
-    const experienceGroup = document.getElementById('previous_experience_group');
-
-    if (previousServicesRadios.length && experienceGroup) {
-        previousServicesRadios.forEach(function(radio) {
-            radio.addEventListener('change', function() {
-                if (this.value === 'yes') {
-                    experienceGroup.style.display = 'block';
-                    experienceGroup.querySelector('textarea').focus();
-                } else {
-                    experienceGroup.style.display = 'none';
-                    experienceGroup.querySelector('textarea').value = '';
-                }
-            });
-        });
-    }
+    // Note: The previous medical experience conditional logic has been removed 
+    // in favor of the specialized 4-step referral flow.
 }
 
 /**
  * Phone number formatting
  */
-const phoneInput = document.getElementById('phone');
-if (phoneInput) {
-    phoneInput.addEventListener('input', function(e) {
+const phoneInputs = document.querySelectorAll('input[type="tel"]');
+phoneInputs.forEach(input => {
+    input.addEventListener('input', function (e) {
         let value = e.target.value.replace(/\D/g, '');
-
         if (value.length > 0) {
             if (value.length <= 3) {
                 value = '(' + value;
@@ -449,39 +476,31 @@ if (phoneInput) {
                 value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6, 10);
             }
         }
-
         e.target.value = value;
     });
-}
+});
+
 
 /**
- * CSS for spinner animation (injected dynamically)
- */
-const spinnerStyle = document.createElement('style');
-spinnerStyle.textContent = `
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-    }
-    .animate-spin {
-        animation: spin 1s linear infinite;
-    }
-`;
-document.head.appendChild(spinnerStyle);
-
-/**
- * Intersection Observer for animations (optional enhancement)
+ * Intersection Observer for animations
  */
 function initScrollAnimations() {
     if (!('IntersectionObserver' in window)) return;
 
-    const animateElements = document.querySelectorAll('.timeline-item, .eligibility-card, .faq-item');
+    // Target elements to reveal
+    const revealElements = document.querySelectorAll('.process-card, .eligibility-card, .faq-item, .section-header, .partner-logo, .trust-item, .hero__trust');
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                // If it's a child of a grid, we might want to stagger it
+                const parentGrid = entry.target.parentElement;
+                if (parentGrid && (parentGrid.classList.contains('process-grid') || parentGrid.classList.contains('eligibility__grid'))) {
+                    const index = Array.from(parentGrid.children).indexOf(entry.target);
+                    entry.target.style.transitionDelay = (index * 0.1) + 's';
+                }
+
+                entry.target.classList.add('animate-in');
                 observer.unobserve(entry.target);
             }
         });
@@ -490,13 +509,12 @@ function initScrollAnimations() {
         rootMargin: '0px 0px -50px 0px'
     });
 
-    animateElements.forEach(function(el) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    revealElements.forEach((el) => {
+        el.classList.add('reveal-on-scroll');
         observer.observe(el);
     });
 }
 
 // Initialize scroll animations after DOM is ready
 document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
