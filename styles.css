@@ -941,8 +941,8 @@ ol {
     flex-shrink: 0;
     width: 54px;
     height: 54px;
-    background: var(--color-primary-50);
-    color: var(--color-primary-600);
+    background: var(--color-accent-50);
+    color: var(--color-accent-600);
     border-radius: 12px;
 }
 
