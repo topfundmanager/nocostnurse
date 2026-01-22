@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Pacifico&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Pacifico&display=swap');
-
 /* ========================================
    NO COST NURSE - Premium Design System
    ======================================== */
@@ -742,6 +740,44 @@ ol {
     color: var(--color-white) !important;
 }
 
+/* Typography Variants */
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-script {
+    font-family: 'Pacifico', cursive;
+    text-transform: none !important;
+}
+
+.hero__title--split {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    line-height: 1;
+    margin-bottom: var(--space-10);
+    text-align: center;
+    width: 100%;
+}
+
+.hero__title-line1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 700;
+    color: var(--color-white);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.01em;
+}
+
+.hero__title-line2 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(4rem, 12vw, 8.5rem);
+    color: var(--color-white);
+    margin-top: -0.15em;
+    filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.6));
+}
+
 /* Overlapping Layout */
 .hero {
     min-height: 95vh;
@@ -759,7 +795,7 @@ ol {
 .hero__background {
     position: absolute;
     inset: 0;
-    background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.7)), url('images/diverse_nurses_hero.png');
+    background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.45)), url('images/diverse_nurses_hero.png');
     background-size: cover;
     background-position: center;
     z-index: -1;
