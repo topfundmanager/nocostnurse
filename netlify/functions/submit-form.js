@@ -36,8 +36,8 @@ exports.handler = async (event, context) => {
         }
 
         const { data, error } = await resend.emails.send({
-            from: 'No Cost Nurse <onboarding@resend.dev>', // Resend default for unverified domains
-            to: ['crafted@marloweemrys.com'], // Notification email address
+            from: 'No Cost Nurse <noreply@updates.nocostnurse.com>',
+            to: ['crafted@marloweemrys.com'],
             subject: `New Referral: ${nominee_first_name} ${nominee_last_name} (${nominee_profession.toUpperCase()})`,
             html: `
                 <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
