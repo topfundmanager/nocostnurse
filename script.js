@@ -328,6 +328,7 @@ function initMultiStepForm() {
     function submitForm() {
         // Show loading state
         btnSubmit.disabled = true;
+        const originalBtnContent = btnSubmit.innerHTML;
         btnSubmit.innerHTML = `
             <svg class="animate-spin" width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" stroke-dasharray="40" stroke-dashoffset="10"/>
@@ -335,42 +336,43 @@ function initMultiStepForm() {
             Submitting...
         `;
 
-        // Simulate API call
-        setTimeout(function () {
-            // Hide form, show success
-            form.style.display = 'none';
-            formSuccess.style.display = 'block';
+        // Collect all form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
 
-            // Update success message for referral
-            formSuccess.innerHTML = `
-                <div class="form-success__icon">
-                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                        <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2" />
-                        <path d="M20 32l8 8 16-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-                <h3 class="form-success__title">Referral Submitted!</h3>
-                <p class="form-success__message">
-                    Thank you for connecting us with your colleague. Our professional vetting team will reach out to them within 24 hours.
-                </p>
-                <div style="background: var(--color-gray-50); padding: var(--space-6); border-radius: var(--radius-lg); margin-top: var(--space-8);">
-                    <p style="font-weight: var(--font-weight-bold); margin-bottom: var(--space-2);">What's next?</p>
-                    <ul style="text-align: left; font-size: var(--font-size-sm); display: inline-block;">
-                        <li>• Confirmation email sent to you</li>
-                        <li>• Candidate interview scheduled</li>
-                        <li>• Payout notification upon first shift</li>
-                    </ul>
-                </div>
-            `;
+        // Call our serverless function
+        fetch('/.netlify/functions/submit-form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(result => {
+                // Hide form, show success
+                form.style.display = 'none';
+                formSuccess.style.display = 'block';
 
-            // Scroll to success message
-            const headerHeight = document.getElementById('header').offsetHeight;
-            const targetPosition = formSuccess.getBoundingClientRect().top + window.pageYOffset - headerHeight - 40;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+                // Scroll to success message
+                const headerHeight = document.getElementById('header').offsetHeight;
+                const targetPosition = formSuccess.getBoundingClientRect().top + window.pageYOffset - headerHeight - 40;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            })
+            .catch(error => {
+                console.error('Submission error:', error);
+                alert('Oops! Something went wrong while submitting your referral. Please try again or contact us directly.');
+
+                // Restore button state
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = originalBtnContent;
             });
-        }, 1500);
     }
 
     // Add real-time validation feedback
