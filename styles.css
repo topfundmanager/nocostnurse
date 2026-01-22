@@ -692,7 +692,11 @@ ol {
 
 @media (min-width: 1024px) {
     .hero-image-img {
-        min-height: 500px;
+        min-height: auto;
+        max-height: 500px;
+        max-width: 550px;
+        margin: 0 auto;
+        display: block;
     }
 }
 
