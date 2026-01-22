@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Pacifico&display=swap');
+
 /* ========================================
    NO COST NURSE - Premium Design System
    ======================================== */
@@ -715,6 +719,76 @@ ol {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-6);
+}
+
+.btn--red-pill {
+    background: #c81e1e;
+    color: var(--color-white) !important;
+    border-radius: 9999px;
+    padding: var(--space-4) var(--space-12);
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: 0 10px 25px rgba(200, 30, 30, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn--red-pill:hover {
+    background: #ac1b1b;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(200, 30, 30, 0.5);
+    color: var(--color-white) !important;
+}
+
+/* Overlapping Layout */
+.hero {
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 250px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.hero__background {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.7)), url('images/diverse_nurses_hero.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.overlap-section {
+    position: relative;
+    z-index: 20;
+    margin-top: -240px;
+    /* Strong overlap */
+}
+
+.overlap-card {
+    background: var(--color-white);
+    border-radius: 3rem;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+    padding: var(--space-16) var(--space-8);
+    border: 1px solid var(--color-gray-100);
+}
+
+@media (max-width: 768px) {
+    .overlap-section {
+        margin-top: -180px;
+    }
+
+    .overlap-card {
+        padding: var(--space-10) var(--space-6);
+        border-radius: 2rem;
+    }
 }
 
 @media (min-width: 768px) {
