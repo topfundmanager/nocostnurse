@@ -855,6 +855,25 @@ ol {
     }
 }
 
+/* Restored Referral Grid */
+.eligibility__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .eligibility__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .eligibility__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 .eligibility-badge {
     display: flex;
     flex-direction: column;
@@ -922,8 +941,8 @@ ol {
     flex-shrink: 0;
     width: 54px;
     height: 54px;
-    background: #f1f7ff;
-    color: #0077D4;
+    background: var(--color-primary-50);
+    color: var(--color-primary-600);
     border-radius: 12px;
 }
 
