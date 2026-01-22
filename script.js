@@ -341,7 +341,7 @@ function initMultiStepForm() {
         const data = Object.fromEntries(formData.entries());
 
         // Call our serverless function
-        fetch('/.netlify/functions/submit-form', {
+        fetch('/submit-form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

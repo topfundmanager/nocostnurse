@@ -1,18 +1,6 @@
-const { Resend } = require('resend');
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-exports.handler = async (event, context) => {
-    // Only allow POST requests
-    if (event.httpMethod !== 'POST') {
-        return {
-            statusCode: 405,
-            body: JSON.stringify({ error: 'Method Not Allowed' }),
-        };
-    }
-
+export async function onRequestPost({ request, env }) {
     try {
-        const formData = JSON.parse(event.body);
+        const formData = await request.json();
         const {
             nominator_first_name,
             nominator_last_name,
@@ -29,13 +17,13 @@ exports.handler = async (event, context) => {
 
         // Simple validation
         if (!nominator_email || !nominee_first_name || !nominee_phone) {
-            return {
-                statusCode: 400,
-                body: JSON.stringify({ error: 'Missing required fields' }),
-            };
+            return new Response(JSON.stringify({ error: 'Missing required fields' }), {
+                status: 400,
+                headers: { 'Content-Type': 'application/json' },
+            });
         }
 
-        const { data, error } = await resend.emails.send({
+        const emailContent = {
             from: 'No Cost Nurse <noreply@updates.nocostnurse.com>',
             to: ['crafted@marloweemrys.com'],
             subject: `New Referral: ${nominee_first_name} ${nominee_last_name} (${nominee_profession.toUpperCase()})`,
@@ -69,25 +57,37 @@ exports.handler = async (event, context) => {
                     </div>
                 </div>
             `,
+        };
+
+        const resendResponse = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(emailContent),
         });
 
-        if (error) {
-            console.error('Resend Error:', error);
-            return {
-                statusCode: 500,
-                body: JSON.stringify({ error: 'Failed to send email' }),
-            };
+        if (!resendResponse.ok) {
+            const errorText = await resendResponse.text();
+            console.error('Resend API Error:', errorText);
+            return new Response(JSON.stringify({ error: 'Failed to send email' }), {
+                status: 500,
+                headers: { 'Content-Type': 'application/json' },
+            });
         }
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ message: 'Referral submitted successfully', id: data.id }),
-        };
+        const result = await resendResponse.json();
+        return new Response(JSON.stringify({ message: 'Referral submitted successfully', id: result.id }), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+        });
+
     } catch (err) {
-        console.error('Server side error:', err);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Internal Server Error' }),
-        };
+        console.error('Pages Function Error:', err);
+        return new Response(JSON.stringify({ error: 'Internal Server Error' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' },
+        });
     }
-};
+}
