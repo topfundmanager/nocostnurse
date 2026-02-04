@@ -724,9 +724,10 @@ ol {
     gap: var(--space-6);
 }
 
-.btn--cta-pill {
+.btn--cta-pill,
+a.btn--cta-pill {
     background: var(--color-accent-600);
-    color: var(--color-white) !important;
+    color: #ffffff !important;
     border-radius: 9999px;
     padding: 0.8rem 1.6rem;
     font-weight: 700;
@@ -745,11 +746,12 @@ ol {
     }
 }
 
-.btn--cta-pill:hover {
+.btn--cta-pill:hover,
+a.btn--cta-pill:hover {
     background: var(--color-accent-700);
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 15px 35px rgba(64, 170, 72, 0.5);
-    color: var(--color-white) !important;
+    color: #ffffff !important;
 }
 
 /* Typography Variants */
