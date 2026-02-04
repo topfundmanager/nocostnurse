@@ -1049,6 +1049,18 @@ ol {
     }
 }
 
+/* Honeypot field - hidden from humans but visible to bots */
+.form-field-website {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
 /* Progress Indicator */
 .form-progress {
     margin-bottom: var(--space-12);

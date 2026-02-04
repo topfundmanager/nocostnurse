@@ -114,6 +114,12 @@ function initMultiStepForm() {
     const form = document.getElementById('questionnaire-form');
     if (!form) return;
 
+    // Bot protection: Set timestamp when form loads
+    const timestampField = document.getElementById('form_timestamp');
+    if (timestampField) {
+        timestampField.value = Date.now().toString();
+    }
+
     const steps = form.querySelectorAll('.form-step');
     const progressSteps = form.querySelectorAll('.progress-step');
     const progressFill = document.getElementById('progress-fill');

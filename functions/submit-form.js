@@ -12,8 +12,39 @@ export async function onRequestPost({ request, env }) {
             nominee_phone,
             medicaid_approved,
             referral_context,
-            referral_consent
+            referral_consent,
+            website,
+            form_timestamp
         } = formData;
+
+        // Bot protection: Honeypot check
+        // If the hidden "website" field is filled, it's likely a bot
+        if (website && website.trim() !== '') {
+            console.log('Bot detected: honeypot field filled');
+            // Return success to not alert the bot, but don't process
+            return new Response(JSON.stringify({ message: 'Referral submitted successfully' }), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+
+        // Bot protection: Timing check
+        // If form was submitted in less than 3 seconds, likely a bot
+        if (form_timestamp) {
+            const submissionTime = Date.now();
+            const formLoadTime = parseInt(form_timestamp, 10);
+            const timeElapsed = submissionTime - formLoadTime;
+            const MIN_SUBMISSION_TIME = 3000; // 3 seconds minimum
+
+            if (timeElapsed < MIN_SUBMISSION_TIME) {
+                console.log('Bot detected: form submitted too quickly', { timeElapsed });
+                // Return success to not alert the bot, but don't process
+                return new Response(JSON.stringify({ message: 'Referral submitted successfully' }), {
+                    status: 200,
+                    headers: { 'Content-Type': 'application/json' },
+                });
+            }
+        }
 
         // Simple validation
         if (!nominator_email || !nominee_first_name || !nominee_phone) {

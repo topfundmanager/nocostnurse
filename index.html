@@ -330,6 +330,14 @@
 
                 <div class="form-container">
                     <form id="questionnaire-form" class="questionnaire-form" novalidate>
+                        <!-- Honeypot field for bot detection - do not fill -->
+                        <div class="form-field-website" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        <!-- Hidden timestamp for timing validation -->
+                        <input type="hidden" name="form_timestamp" id="form_timestamp" value="">
+
                         <!-- Progress Indicator -->
                         <div class="form-progress">
                             <div class="progress-bar">
