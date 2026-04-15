@@ -1,3 +1,5 @@
+import { forwardSubmissionToTopFundNetwork } from './_topfundnetwork-import.js';
+
 export async function onRequestPost({ request, env }) {
     try {
         const formData = await request.json();
@@ -52,6 +54,20 @@ export async function onRequestPost({ request, env }) {
                 status: 400,
                 headers: { 'Content-Type': 'application/json' },
             });
+        }
+
+        // Forward to TopFundNetwork intake API (non-blocking).
+        try {
+            await forwardSubmissionToTopFundNetwork(env, request, {
+                formId: 'referral',
+                formName: 'Nurse Referral',
+                contactName: `${nominator_first_name || ''} ${nominator_last_name || ''}`.trim(),
+                contactEmail: nominator_email,
+                contactPhone: nominator_phone,
+                submission: formData,
+            });
+        } catch (importError) {
+            console.error('TopFundNetwork import error:', importError);
         }
 
         const emailContent = {
