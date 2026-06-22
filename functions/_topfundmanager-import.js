@@ -24,11 +24,11 @@ function sanitizeSubmission(data) {
   return sanitized;
 }
 
-export async function forwardSubmissionToTopFundNetwork(env, request, options) {
-  const apiUrl = cleanString(env.TOPFUNDNETWORK_FORMS_API_URL);
-  const apiKey = cleanString(env.TOPFUNDNETWORK_FORMS_API_KEY);
+export async function forwardSubmissionToTopFundManager(env, request, options) {
+  const apiUrl = cleanString(env.TOPFUNDMANAGER_FORMS_API_URL) || 'https://topfundmanager.com/api/forms/import';
+  const apiKey = cleanString(env.TOPFUNDMANAGER_FORMS_API_KEY);
 
-  if (!apiUrl || !apiKey) {
+  if (!apiKey) {
     return;
   }
 
@@ -65,6 +65,6 @@ export async function forwardSubmissionToTopFundNetwork(env, request, options) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`TopFundNetwork import API error: ${errorText}`);
+    throw new Error(`TopFundManager import API error: ${errorText}`);
   }
 }

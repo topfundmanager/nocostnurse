@@ -1,4 +1,4 @@
-import { forwardSubmissionToTopFundNetwork } from './_topfundnetwork-import.js';
+import { forwardSubmissionToTopFundManager } from './_topfundmanager-import.js';
 
 export async function onRequestPost({ request, env }) {
     try {
@@ -56,9 +56,9 @@ export async function onRequestPost({ request, env }) {
             });
         }
 
-        // Forward to TopFundNetwork intake API (non-blocking).
+        // Forward to TopFundManager intake API (non-blocking).
         try {
-            await forwardSubmissionToTopFundNetwork(env, request, {
+            await forwardSubmissionToTopFundManager(env, request, {
                 formId: 'referral',
                 formName: 'Nurse Referral',
                 contactName: `${nominator_first_name || ''} ${nominator_last_name || ''}`.trim(),
@@ -67,7 +67,7 @@ export async function onRequestPost({ request, env }) {
                 submission: formData,
             });
         } catch (importError) {
-            console.error('TopFundNetwork import error:', importError);
+            console.error('TopFundManager import error:', importError);
         }
 
         const emailContent = {
