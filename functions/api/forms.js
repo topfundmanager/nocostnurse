@@ -107,7 +107,16 @@ function findContactName(fields) {
   const first = fields.first_name || fields.firstName || '';
   const last = fields.last_name || fields.lastName || '';
   const combined = `${first} ${last}`.trim();
-  return combined || null;
+  if (combined) return combined;
+
+  // The intake form has no contact name field; the parent or guardian is the contact.
+  const parent = [fields.mother_name, fields.father_name]
+    .map((value) => String(value || '').trim())
+    .find(Boolean);
+  if (parent) return parent;
+
+  const child = `${fields.child_first_name || ''} ${fields.child_last_name || ''}`.trim();
+  return child || null;
 }
 
 function findContactPhone(fields) {
