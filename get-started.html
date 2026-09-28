@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8BJ59FY8FK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-8BJ59FY8FK');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>Get Started - Pediatric Intake Form | No Cost Nurse</title>
+    <meta name="description"
+        content="Complete our pediatric intake form to get started with No Cost Nurse. Free in-home nursing care for children covered by Georgia Medicaid.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nocostnurse.com/get-started.html">
+    <link rel="alternate" hreflang="en" href="https://nocostnurse.com/get-started.html">
+    <link rel="alternate" hreflang="es" href="https://nocostnurse.com/es/get-started.html">
+    <link rel="alternate" hreflang="x-default" href="https://nocostnurse.com/get-started.html">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/nurse_logo_v3_transparent.png">
+
+    <style>
+        /* Multi-Step Form Styles */
+        .intake-form-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Progress Bar */
+        .form-progress {
+            margin-bottom: var(--space-8);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--color-gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-bottom: var(--space-4);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            border-radius: var(--radius-full);
+            transition: width 0.4s ease;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-2);
+        }
+
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            font-size: var(--text-xs);
+            color: var(--color-gray-500);
+            position: relative;
+        }
+
+        .progress-step.active {
+            color: var(--color-primary);
+            font-weight: var(--font-semibold);
+        }
+
+        .progress-step.completed {
+            color: var(--color-secondary);
+        }
+
+        .progress-step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: var(--radius-full);
+            background: var(--color-gray-200);
+            color: var(--color-gray-600);
+            font-weight: var(--font-semibold);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-2);
+        }
+
+        .progress-step.active .progress-step-number {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .progress-step.completed .progress-step-number {
+            background: var(--color-secondary);
+            color: white;
+        }
+
+        @media (max-width: 640px) {
+            .progress-step span:not(.progress-step-number) {
+                display: none;
+            }
+        }
+
+        /* Form Steps */
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Section Headers */
+        .form-section-header {
+            background: var(--color-primary-bg);
+            padding: var(--space-4) var(--space-5);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-6);
+        }
+
+        .form-section-header h2 {
+            color: var(--color-primary-dark);
+            font-size: var(--text-xl);
+            margin: 0;
+        }
+
+        .form-section-header p {
+            color: var(--color-gray-600);
+            margin: var(--space-2) 0 0;
+            font-size: var(--text-sm);
+        }
+
+        /* Subsection Headers */
+        .form-subsection {
+            border-top: 1px solid var(--color-gray-200);
+            padding-top: var(--space-6);
+            margin-top: var(--space-6);
+        }
+
+        .form-subsection h3 {
+            font-size: var(--text-lg);
+            color: var(--color-gray-800);
+            margin-bottom: var(--space-4);
+        }
+
+        /* Conditional Fields */
+        .conditional-fields {
+            display: none;
+            background: var(--color-gray-50);
+            padding: var(--space-5);
+            border-radius: var(--radius-lg);
+            margin-top: var(--space-4);
+            border-left: 4px solid var(--color-primary-light);
+        }
+
+        .conditional-fields.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
+        }
+
+        /* Form Navigation */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+            padding-top: var(--space-6);
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .form-navigation .btn {
+            min-width: 140px;
+        }
+
+        /* Radio/Checkbox Groups */
+        .option-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+            margin-top: var(--space-2);
+        }
+
+        .option-group-vertical {
+            flex-direction: column;
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--space-2);
+            margin-top: var(--space-2);
+        }
+
+        .checkbox-grid-compact {
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        }
+
+        /* Success Message */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: var(--space-12) var(--space-6);
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-success);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-6);
+        }
+
+        .form-success-icon svg {
+            width: 40px;
+            height: 40px;
+            color: white;
+        }
+
+        .form-success h2 {
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-4);
+        }
+
+        /* Name Fields Grid */
+        .name-grid {
+            display: grid;
+            grid-template-columns: 1fr 0.5fr 1fr;
+            gap: var(--space-4);
+        }
+
+        @media (max-width: 640px) {
+            .name-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Days Checkbox Horizontal */
+        .days-checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+        }
+
+        .days-checkbox-group label {
+            flex: 1;
+            min-width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="site-header">
+        <!-- Top Bar -->
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-left">
+                    <span>Free Services for Medicaid-Covered Children Under 21</span>
+                </div>
+                <div class="header-top-right">
+                    <a href="tel:+16788235817" aria-label="Call us at 678-823-5817">
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                        (678) 823-5817
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="container">
+                <a href="index.html" class="logo" aria-label="No Cost Nurse - Home">
+                    <img src="images/nurse_logo_v3_transparent.png" alt="No Cost Nurse Logo" width="180" height="80" aria-hidden="true">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="main-nav" aria-label="Main navigation">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="process.html" class="nav-link">How It Works</a></li>
+                        <li><a href="services.html" class="nav-link">Services</a></li>
+                        <li><a href="careers.html" class="nav-link">Careers</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="header-cta">
+                    <a href="get-started.html" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+                <li><a href="process.html" class="mobile-nav-link">How It Works</a></li>
+                <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+                <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+                <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+                <li><a href="get-started.html" class="btn btn-primary btn-block mt-4">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Get Started</h1>
+                <p>Complete our pediatric intake form to begin receiving free in-home nursing care for your child.</p>
+            </div>
+        </section>
+
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Get Started</li>
+            </ol>
+        </nav>
+
+        <!-- Intake Form Section -->
+        <section class="section">
+            <div class="container intake-form-container">
+
+                <!-- Progress Indicator -->
+                <div class="form-progress" id="form-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill" style="width: 25%;"></div>
+                    </div>
+                    <div class="progress-steps">
+                        <div class="progress-step active" data-step="1">
+                            <span class="progress-step-number">1</span>
+                            <span>Child's Info</span>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <span class="progress-step-number">2</span>
+                            <span>Family Info</span>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <span class="progress-step-number">3</span>
+                            <span>Medical Info</span>
+                        </div>
+                        <div class="progress-step" data-step="4">
+                            <span class="progress-step-number">4</span>
+                            <span>Care Needs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Multi-Step Form -->
+                <form id="intake-form" action="/api/forms" method="POST" novalidate>
+                    <input type="hidden" name="form_id" value="intake">
+                    <input type="hidden" name="form_started_at" id="intake_form_started_at" value="">
+                    <!-- Honeypot field for bot detection - do not remove -->
+                    <div style="position: absolute; left: -9999px;" aria-hidden="true">
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        <input type="text" name="company" tabindex="-1" autocomplete="off">
+                        <input type="text" name="fax" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <!-- ==================== PAGE 1: CHILD'S INFORMATION ==================== -->
+                    <div class="form-step active" data-step="1">
+                        <div class="form-section-header">
+                            <h2>Child's Information</h2>
+                            <p>Please provide information about the child who will receive care.</p>
+                        </div>
+
+                        <!-- Today's Date -->
+                        <div class="form-group">
+                            <label for="today_date" class="form-label">Today's Date</label>
+                            <input type="date" id="today_date" name="today_date" class="form-input">
+                        </div>
+
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label class="form-label">Child's Full Name</label>
+                            <div class="name-grid">
+                                <div>
+                                    <input type="text" id="child_first_name" name="child_first_name" class="form-input"
+                                        placeholder="First Name" autocomplete="off">
+                                </div>
+                                <div>
+                                    <input type="text" id="child_middle_name" name="child_middle_name"
+                                        class="form-input" placeholder="Middle">
+                                </div>
+                                <div>
+                                    <input type="text" id="child_last_name" name="child_last_name" class="form-input"
+                                        placeholder="Last Name" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Date of Birth -->
+                        <div class="form-group">
+                            <label for="child_dob" class="form-label">Date of Birth</label>
+                            <input type="date" id="child_dob" name="child_dob" class="form-input">
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="form-group">
+                            <label for="child_gender" class="form-label">Gender</label>
+                            <input type="text" id="child_gender" name="child_gender" class="form-input"
+                                placeholder="Enter gender">
+                        </div>
+
+                        <!-- Address -->
+                        <div class="form-group">
+                            <label class="form-label">Address</label>
+                            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                                <input type="text" name="child_street_address" class="form-input"
+                                    placeholder="Street Address" autocomplete="street-address">
+                                <input type="text" name="child_address_line_2" class="form-input"
+                                    placeholder="Address Line 2 (Apt, Suite, etc.)">
+                                <div class="grid grid-2">
+                                    <input type="text" name="child_city" class="form-input" placeholder="City"
+                                        autocomplete="address-level2">
+                                    <input type="text" name="child_state" class="form-input" placeholder="State"
+                                        value="Georgia" autocomplete="address-level1">
+                                </div>
+                                <div class="grid grid-2">
+                                    <input type="text" name="child_zip" class="form-input" placeholder="ZIP Code"
+                                        autocomplete="postal-code">
+                                    <input type="text" name="child_country" class="form-input" value="United States"
+                                        readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Medicaid Number -->
+                        <div class="form-group">
+                            <label for="medicaid_number" class="form-label">Medicaid Number</label>
+                            <input type="text" id="medicaid_number" name="medicaid_number" class="form-input"
+                                placeholder="Enter Medicaid ID">
+                        </div>
+
+                        <!-- Yes/No Questions -->
+                        <div class="form-group">
+                            <label class="form-label">Does your child have private insurance?</label>
+                            <div class="option-group">
+                                <label class="form-checkbox">
+                                    <input type="radio" name="has_private_insurance" value="Yes">
+                                    <span>Yes</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="radio" name="has_private_insurance" value="No">
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Does your child receive GAPP services today?</label>
+                            <div class="option-group">
+                                <label class="form-checkbox">
+                                    <input type="radio" name="receives_gapp" value="Yes">
+                                    <span>Yes</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="radio" name="receives_gapp" value="No">
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Does your child receive any other services from a Medicaid
+                                program?</label>
+                            <div class="option-group">
+                                <label class="form-checkbox">
+                                    <input type="radio" name="receives_other_medicaid" value="Yes">
+                                    <span>Yes</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="radio" name="receives_other_medicaid" value="No">
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Attends School Question -->
+                        <div class="form-group">
+                            <label class="form-label">Does your child attend school?</label>
+                            <div class="option-group">
+                                <label class="form-checkbox">
+                                    <input type="radio" name="attends_school" value="Yes" id="attends_school_yes">
+                                    <span>Yes</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="radio" name="attends_school" value="No" id="attends_school_no">
+                                    <span>No</span>
+                                </label>
+                            </div>
+
+                            <!-- Conditional School Fields -->
+                            <div class="conditional-fields" id="school-fields">
+                                <div class="form-group">
+                                    <label for="school_name" class="form-label">What is the name of the school?</label>
+                                    <input type="text" id="school_name" name="school_name" class="form-input"
+                                        placeholder="Enter school name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Select all days your child attends school</label>
+                                    <div class="days-checkbox-group">
+                                        <label class="form-checkbox"><input type="checkbox" name="school_days[]"
+                                                value="Monday"><span>Monday</span></label>
+                                        <label class="form-checkbox"><input type="checkbox" name="school_days[]"
+                                                value="Tuesday"><span>Tuesday</span></label>
+                                        <label class="form-checkbox"><input type="checkbox" name="school_days[]"
+                                                value="Wednesday"><span>Wednesday</span></label>
+                                        <label class="form-checkbox"><input type="checkbox" name="school_days[]"
+                                                value="Thursday"><span>Thursday</span></label>
+                                        <label class="form-checkbox"><input type="checkbox" name="school_days[]"
+                                                value="Friday"><span>Friday</span></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="school_hours" class="form-label">What hours does your child attend
+                                        school each day?</label>
+                                    <input type="text" id="school_hours" name="school_hours" class="form-input"
+                                        placeholder="e.g., 8:00 AM - 3:00 PM">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Does your child have a current IEP?</label>
+                                    <div class="option-group">
+                                        <label class="form-checkbox">
+                                            <input type="radio" name="has_iep" value="Yes">
+                                            <span>Yes</span>
+                                        </label>
+                                        <label class="form-checkbox">
+                                            <input type="radio" name="has_iep" value="No">
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation -->
+                        <div class="form-navigation">
+                            <div></div>
+                            <button type="button" class="btn btn-primary next-step">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== PAGE 2: PARENT/FAMILY INFORMATION ==================== -->
+                    <div class="form-step" data-step="2">
+                        <div class="form-section-header">
+                            <h2>Parent/Family Information</h2>
+                            <p>Please provide contact information for the child's parents or guardians.</p>
+                        </div>
+
+                        <!-- Mother's Information -->
+                        <h3 style="margin-bottom: var(--space-4); color: var(--color-gray-800);">Mother's Information
+                        </h3>
+                        <div class="form-group">
+                            <label for="mother_name" class="form-label">Mother's Full Name</label>
+                            <input type="text" id="mother_name" name="mother_name" class="form-input"
+                                placeholder="Enter mother's full name">
+                        </div>
+
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label for="mother_phone" class="form-label">Mother's Phone Number</label>
+                                <input type="tel" id="mother_phone" name="mother_phone" class="form-input"
+                                    placeholder="(___) ___-____">
+                            </div>
+                            <div class="form-group">
+                                <label for="mother_email" class="form-label">Mother's Email Address</label>
+                                <input type="email" id="mother_email" name="mother_email" class="form-input"
+                                    placeholder="email@example.com">
+                            </div>
+                        </div>
+
+                        <!-- Father's Information -->
+                        <div class="form-subsection">
+                            <h3>Father's Information</h3>
+                            <div class="form-group">
+                                <label for="father_name" class="form-label">Father's Full Name</label>
+                                <input type="text" id="father_name" name="father_name" class="form-input"
+                                    placeholder="Enter father's full name">
+                            </div>
+
+                            <div class="grid grid-2">
+                                <div class="form-group">
+                                    <label for="father_phone" class="form-label">Father's Phone Number</label>
+                                    <input type="tel" id="father_phone" name="father_phone" class="form-input"
+                                        placeholder="(___) ___-____">
+                                </div>
+                                <div class="form-group">
+                                    <label for="father_email" class="form-label">Father's Email Address</label>
+                                    <input type="email" id="father_email" name="father_email" class="form-input"
+                                        placeholder="email@example.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Questions -->
+                        <div class="form-subsection">
+                            <h3>Additional Household Information</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">Are there any other medically fragile children in the
+                                    home?</label>
+                                <div class="option-group">
+                                    <label class="form-checkbox">
+                                        <input type="radio" name="other_fragile_children" value="Yes">
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="radio" name="other_fragile_children" value="No">
+                                        <span>No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Is there anyone else in your home who is currently in the GAPP
+                                    program?</label>
+                                <div class="option-group">
+                                    <label class="form-checkbox">
+                                        <input type="radio" name="other_gapp_members" value="Yes">
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="radio" name="other_gapp_members" value="No">
+                                        <span>No</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-outline prev-step">← Previous</button>
+                            <button type="button" class="btn btn-primary next-step">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== PAGE 3: CHILD'S MEDICAL INFORMATION ==================== -->
+                    <div class="form-step" data-step="3">
+                        <div class="form-section-header">
+                            <h2>Child's Medical Information</h2>
+                            <p>Please provide details about your child's medical conditions and care needs.</p>
+                        </div>
+
+                        <!-- Medical Diagnosis -->
+                        <div class="form-group">
+                            <label for="medical_diagnosis" class="form-label">What is the child's medical
+                                diagnosis?</label>
+                            <textarea id="medical_diagnosis" name="medical_diagnosis" class="form-textarea" rows="4"
+                                placeholder="Please list all diagnoses..."></textarea>
+                        </div>
+
+                        <!-- Equipment -->
+                        <div class="form-group">
+                            <label class="form-label">Does your child have any of the following equipment? (Select all
+                                that apply)</label>
+                            <div class="checkbox-grid">
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Wheelchair"><span>Wheelchair</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Gait Trainer"><span>Gait Trainer</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Trach"><span>Trach</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Catheter"><span>Catheter</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Shower Chair"><span>Shower Chair</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Walker"><span>Walker</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="G-Tube"><span>G-Tube</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Standers"><span>Standers</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Suction"><span>Suction</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Leg Brace"><span>Leg Brace</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="AAC Device"><span>AAC Device</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Special Bed/Safe Bed"><span>Special Bed/Safe Bed</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Glasses"><span>Glasses</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]"
+                                        value="Oxygen"><span>Oxygen</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="equipment[]" value="Other"
+                                        id="equipment_other"><span>Other</span></label>
+                            </div>
+
+                            <!-- Conditional Other Equipment Field -->
+                            <div class="conditional-fields" id="equipment-other-field">
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label for="equipment_other_list" class="form-label">Please list other
+                                        equipment:</label>
+                                    <input type="text" id="equipment_other_list" name="equipment_other_list"
+                                        class="form-input" placeholder="Enter other equipment">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bathroom Assistance -->
+                        <div class="form-group">
+                            <label class="form-label">Can your child use the bathroom without assistance?</label>
+                            <div class="option-group">
+                                <label class="form-checkbox">
+                                    <input type="radio" name="bathroom_independent" value="Yes">
+                                    <span>Yes</span>
+                                </label>
+                                <label class="form-checkbox">
+                                    <input type="radio" name="bathroom_independent" value="No">
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Therapy Services -->
+                        <div class="form-group">
+                            <label class="form-label">Does your child receive any of the following services? (Select all
+                                that apply)</label>
+                            <div class="checkbox-grid">
+                                <label class="form-checkbox"><input type="checkbox" name="therapy_services[]"
+                                        value="OT"><span>OT (Occupational Therapy)</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="therapy_services[]"
+                                        value="PT"><span>PT (Physical Therapy)</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="therapy_services[]"
+                                        value="Speech Therapy"><span>Speech Therapy</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="therapy_services[]"
+                                        value="None"><span>My child does not receive any of these
+                                        services</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Pediatrician Contact -->
+                        <div class="form-subsection">
+                            <h3>Pediatrician Contact Details</h3>
+
+                            <div class="grid grid-2">
+                                <div class="form-group">
+                                    <label for="practice_name" class="form-label">Name of Practice</label>
+                                    <input type="text" id="practice_name" name="practice_name" class="form-input"
+                                        placeholder="Enter practice name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="doctor_name" class="form-label">Doctor's Name</label>
+                                    <input type="text" id="doctor_name" name="doctor_name" class="form-input"
+                                        placeholder="Enter doctor's name">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="doctor_address" class="form-label">Address</label>
+                                <input type="text" id="doctor_address" name="doctor_address" class="form-input"
+                                    placeholder="Enter practice address">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="doctor_phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="doctor_phone" name="doctor_phone" class="form-input"
+                                    placeholder="(___) ___-____">
+                            </div>
+                        </div>
+
+                        <!-- Additional Medical Questions -->
+                        <div class="form-subsection">
+                            <h3>Additional Medical History</h3>
+
+                            <div class="form-group">
+                                <label class="form-label">Does your child have seizures?</label>
+                                <div class="option-group">
+                                    <label class="form-checkbox">
+                                        <input type="radio" name="has_seizures" value="Yes">
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="radio" name="has_seizures" value="No">
+                                        <span>No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="surgeries_hospitalizations" class="form-label">List all surgeries and
+                                    hospitalizations with dates</label>
+                                <textarea id="surgeries_hospitalizations" name="surgeries_hospitalizations"
+                                    class="form-textarea" rows="4"
+                                    placeholder="Please list surgeries and hospitalizations with approximate dates..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="last_pcp_visit" class="form-label">Last appointment date with primary care
+                                    physician</label>
+                                <input type="text" id="last_pcp_visit" name="last_pcp_visit" class="form-input"
+                                    placeholder="Enter date or approximate date">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Does your child have any allergies?</label>
+                                <div class="option-group">
+                                    <label class="form-checkbox">
+                                        <input type="radio" name="has_allergies" value="Yes">
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="form-checkbox">
+                                        <input type="radio" name="has_allergies" value="No">
+                                        <span>No</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="child_limitations" class="form-label">Describe your child's limitations in
+                                    your words</label>
+                                <textarea id="child_limitations" name="child_limitations" class="form-textarea" rows="4"
+                                    placeholder="Please describe how your child's condition affects their daily activities..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-outline prev-step">← Previous</button>
+                            <button type="button" class="btn btn-primary next-step">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- ==================== PAGE 4: HOW CAN WE HELP YOU? ==================== -->
+                    <div class="form-step" data-step="4">
+                        <div class="form-section-header">
+                            <h2>How Can We Help You?</h2>
+                            <p>Listed below are tasks that our staff can assist you with when providing care for your
+                                child. Please select all that apply in each category.</p>
+                        </div>
+
+                        <!-- Bathing -->
+                        <div class="form-group">
+                            <label class="form-label">Bathing</label>
+                            <div class="option-group">
+                                <label class="form-checkbox"><input type="radio" name="bathing"
+                                        value="Bed Bath"><span>Bed Bath</span></label>
+                                <label class="form-checkbox"><input type="radio" name="bathing"
+                                        value="Shower"><span>Shower</span></label>
+                                <label class="form-checkbox"><input type="radio" name="bathing"
+                                        value="Bathtub Bathing"><span>Bathtub Bathing</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Ambulation -->
+                        <div class="form-group">
+                            <label class="form-label">Ambulation</label>
+                            <div class="option-group">
+                                <label class="form-checkbox"><input type="radio" name="ambulation"
+                                        value="Ambulation Assistance"><span>Ambulation Assistance</span></label>
+                                <label class="form-checkbox"><input type="radio" name="ambulation"
+                                        value="Monitor for Fall Prevention"><span>Monitor for Fall
+                                        Prevention</span></label>
+                                <label class="form-checkbox"><input type="radio" name="ambulation"
+                                        value="Range of Motion Exercise"><span>Range of Motion Exercise</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Companionship -->
+                        <div class="form-group">
+                            <label class="form-label">Companionship (Select all that apply)</label>
+                            <div class="checkbox-grid checkbox-grid-compact">
+                                <label class="form-checkbox"><input type="checkbox" name="companionship[]"
+                                        value="Assist with Hobbies"><span>Assist with Hobbies</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="companionship[]"
+                                        value="Encourage Conversation"><span>Encourage Conversation</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="companionship[]"
+                                        value="Caregiver Relief"><span>Caregiver Relief</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="companionship[]"
+                                        value="Companion Sitter"><span>Companion Sitter</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="companionship[]"
+                                        value="Laundry Assistance"><span>Laundry Assistance</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="companionship[]"
+                                        value="Reading"><span>Reading</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="companionship[]"
+                                        value="Walk Outside"><span>Walk Outside</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="companionship[]"
+                                        value="Watch TV"><span>Watch TV</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Housekeeping -->
+                        <div class="form-group">
+                            <label class="form-label">Housekeeping (Select all that apply)</label>
+                            <div class="checkbox-grid checkbox-grid-compact">
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Change Linen"><span>Change Linen</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Dishes"><span>Dishes</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Laundry"><span>Laundry</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Clean Bathroom"><span>Clean Bathroom</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Bedroom"><span>Bedroom</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Den"><span>Den</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Kitchen"><span>Kitchen</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Cut Food"><span>Cut Food</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Dusting"><span>Dusting</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Empty Dishwasher"><span>Empty Dishwasher</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Light Housekeeping"><span>Light Housekeeping</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Make/Change Bed"><span>Make/Change Bed</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Mop Floor"><span>Mop Floor</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="housekeeping[]"
+                                        value="Sweep Floor"><span>Sweep Floor</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Transferring -->
+                        <div class="form-group">
+                            <label class="form-label">Transferring (Select all that apply)</label>
+                            <div class="checkbox-grid">
+                                <label class="form-checkbox"><input type="checkbox" name="transferring[]"
+                                        value="Hands On Assist"><span>Hands On Assist</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="transferring[]"
+                                        value="Standby Assist"><span>Standby Assist</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="transferring[]"
+                                        value="Verbal Cue/Reminder"><span>Verbal Cue/Reminder</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Diet -->
+                        <div class="form-group">
+                            <label class="form-label">Diet (Select all that apply)</label>
+                            <div class="checkbox-grid">
+                                <label class="form-checkbox"><input type="checkbox" name="diet[]"
+                                        value="Regular"><span>Regular</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="diet[]"
+                                        value="Pureed"><span>Pureed</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="diet[]"
+                                        value="Liquid"><span>Liquid</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="diet[]"
+                                        value="Soft"><span>Soft</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Personal Care -->
+                        <div class="form-group">
+                            <label class="form-label">Personal Care (Select all that apply)</label>
+                            <div class="checkbox-grid checkbox-grid-compact">
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Assist with Medical Device"><span>Assist with Medical
+                                        Device</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Brush Hair"><span>Brush Hair</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Nail Care"><span>Nail Care</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Brush Teeth"><span>Brush Teeth</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Rotate/Reposition"><span>Rotate/Reposition</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Comb Hair"><span>Comb Hair</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Shampoo"><span>Shampoo</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Grooming"><span>Grooming</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Eating"><span>Eating</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Toileting Assistance"><span>Toileting Assistance</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Escort to Activities"><span>Escort to Activities</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="personal_care[]"
+                                        value="Apply Lotion"><span>Apply Lotion</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Toileting -->
+                        <div class="form-group">
+                            <label class="form-label">Toileting (Select all that apply)</label>
+                            <div class="checkbox-grid checkbox-grid-compact">
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Assist On/Off Toilet"><span>Assist On/Off Toilet</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Bathroom Safety"><span>Bathroom Safety</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Bedpan Assist"><span>Bedpan Assist</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Bowel Incontinence Assist"><span>Bowel Incontinence Assist</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Change Diapers"><span>Change Diapers</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Wipe Down"><span>Wipe Down</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Catheter Care Assistance"><span>Catheter Care Assistance</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Hands-On Assist"><span>Hands-On Assist</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Standby Assist"><span>Standby Assist</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="toileting[]"
+                                        value="Verbal Reminders"><span>Verbal Reminders</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Nutritional Services -->
+                        <div class="form-group">
+                            <label class="form-label">Nutritional Services (Select all that apply)</label>
+                            <div class="checkbox-grid">
+                                <label class="form-checkbox"><input type="checkbox" name="nutritional[]"
+                                        value="Encourage Fluids"><span>Encourage Fluids</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="nutritional[]"
+                                        value="Encourage Eating"><span>Encourage Eating</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="nutritional[]"
+                                        value="Feeding Assistance"><span>Feeding Assistance</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="nutritional[]"
+                                        value="Prepare Meals"><span>Prepare Meals</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="nutritional[]"
+                                        value="Record Food Intake"><span>Record Food Intake</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="nutritional[]"
+                                        value="Record Liquid Intake"><span>Record Liquid Intake</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Medication Services -->
+                        <div class="form-group">
+                            <label class="form-label">Medication Services (Select all that apply)</label>
+                            <div class="checkbox-grid">
+                                <label class="form-checkbox"><input type="checkbox" name="medication[]"
+                                        value="Assist with Insulin"><span>Assist with Insulin</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="medication[]"
+                                        value="G-Tube Meds"><span>G-Tube Meds</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="medication[]"
+                                        value="Insulin Syringe Fill"><span>Insulin Syringe Fill</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="medication[]"
+                                        value="Medication Administration"><span>Medication Administration</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="medication[]"
+                                        value="Medication Reminders"><span>Medication Reminders</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="medication[]"
+                                        value="Oxygen Care"><span>Oxygen Care</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Feeding -->
+                        <div class="form-group">
+                            <label class="form-label">Feeding (Select all that apply)</label>
+                            <div class="checkbox-grid">
+                                <label class="form-checkbox"><input type="checkbox" name="feeding[]"
+                                        value="Spoon-fed Assistance"><span>Spoon-fed Assistance</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="feeding[]"
+                                        value="Verbal Cue"><span>Verbal Cue</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="feeding[]"
+                                        value="G-Tube"><span>G-Tube</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="feeding[]"
+                                        value="G-Tube + Flush"><span>G-Tube + Flush</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="feeding[]"
+                                        value="Observe While Eating"><span>Observe While Eating</span></label>
+                                <label class="form-checkbox"><input type="checkbox" name="feeding[]"
+                                        value="Open Packages"><span>Open Packages</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-outline prev-step">← Previous</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Intake Form</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div class="form-success" id="form-success">
+                    <div class="form-success-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h2>Thanks for contacting us!</h2>
+                    <p class="mb-6" style="font-size: var(--text-lg); color: var(--color-gray-600);">We will get in
+                        touch with you shortly.</p>
+                    <p style="color: var(--color-gray-500);">A member of our team will review your intake form and
+                        contact you within 24 to 48 business hours to discuss next steps.</p>
+                    <a href="index.html" class="btn btn-primary mt-8">Return to Home</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="images/nurse_logo_v3_transparent.png" alt="No Cost Nurse" class="footer-logo-img" width="150">
+                    <p>Providing compassionate, professional in-home nursing care for medically fragile children across
+                        metro Atlanta. All services free for Medicaid-eligible families.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="process.html">How It Works</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#respiratory">Respiratory Support</a></li>
+                        <li><a href="services.html#nursing">Skilled Nursing</a></li>
+                        <li><a href="services.html#personal-care">Personal Care</a></li>
+                        <li><a href="services.html#nutrition">Nutrition Care</a></li>
+                        <li><a href="services.html#medication">Medication Management</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact">
+                        <div class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
+                            <a href="tel:+16788235817">(678) 823-5817</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                            <a href="mailto:jccaringservices@gmail.com">jccaringservices@gmail.com</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            <span>Atlanta, Georgia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="copyright-year"></span> No Cost Nurse. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="hipaa.html">HIPAA Notice</a>
+                    <a href="accessibility.html">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check for success parameter in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                document.getElementById('intake-form').style.display = 'none';
+                document.getElementById('form-progress').style.display = 'none';
+                document.getElementById('form-success').classList.add('show');
+                return;
+            }
+
+            const form = document.getElementById('intake-form');
+            const steps = document.querySelectorAll('.form-step');
+            const progressSteps = document.querySelectorAll('.progress-step');
+            const progressFill = document.getElementById('progress-fill');
+            let currentStep = 1;
+            const totalSteps = 4;
+
+            // Set today's date
+            const todayInput = document.getElementById('today_date');
+            if (todayInput) {
+                todayInput.valueAsDate = new Date();
+            }
+
+            // Update progress bar and steps
+            function updateProgress() {
+                const percentage = (currentStep / totalSteps) * 100;
+                progressFill.style.width = percentage + '%';
+
+                progressSteps.forEach((step, index) => {
+                    const stepNum = index + 1;
+                    step.classList.remove('active', 'completed');
+                    if (stepNum === currentStep) {
+                        step.classList.add('active');
+                    } else if (stepNum < currentStep) {
+                        step.classList.add('completed');
+                    }
+                });
+            }
+
+            // Show specific step
+            function showStep(stepNumber) {
+                steps.forEach(step => {
+                    step.classList.remove('active');
+                    if (parseInt(step.dataset.step) === stepNumber) {
+                        step.classList.add('active');
+                    }
+                });
+                currentStep = stepNumber;
+                updateProgress();
+                window.scrollTo({ top: 300, behavior: 'smooth' });
+            }
+
+            // Next step buttons
+            document.querySelectorAll('.next-step').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (currentStep < totalSteps) {
+                        showStep(currentStep + 1);
+                    }
+                });
+            });
+
+            // Previous step buttons
+            document.querySelectorAll('.prev-step').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (currentStep > 1) {
+                        showStep(currentStep - 1);
+                    }
+                });
+            });
+
+            // Conditional: School fields
+            const attendsSchoolYes = document.getElementById('attends_school_yes');
+            const attendsSchoolNo = document.getElementById('attends_school_no');
+            const schoolFields = document.getElementById('school-fields');
+
+            if (attendsSchoolYes && attendsSchoolNo && schoolFields) {
+                attendsSchoolYes.addEventListener('change', function () {
+                    if (this.checked) schoolFields.classList.add('show');
+                });
+                attendsSchoolNo.addEventListener('change', function () {
+                    if (this.checked) schoolFields.classList.remove('show');
+                });
+            }
+
+            // Conditional: Equipment Other field
+            const equipmentOther = document.getElementById('equipment_other');
+            const equipmentOtherField = document.getElementById('equipment-other-field');
+
+            if (equipmentOther && equipmentOtherField) {
+                equipmentOther.addEventListener('change', function () {
+                    if (this.checked) {
+                        equipmentOtherField.classList.add('show');
+                    } else {
+                        equipmentOtherField.classList.remove('show');
+                    }
+                });
+            }
+
+            // Intake form submission
+            if (form && window.ncnSubmitForm) {
+                form.addEventListener('submit', async function (event) {
+                    event.preventDefault();
+
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalText = submitBtn ? submitBtn.textContent : 'Submit';
+                    const navArea = form.querySelector('.form-navigation') || form;
+                    let statusMsg = form.querySelector('.form-status');
+
+                    if (!statusMsg) {
+                        statusMsg = document.createElement('div');
+                        statusMsg.className = 'form-status';
+                        navArea.appendChild(statusMsg);
+                    }
+
+                    if (submitBtn) {
+                        submitBtn.textContent = 'Sending...';
+                        submitBtn.disabled = true;
+                    }
+                    statusMsg.textContent = '';
+                    statusMsg.removeAttribute('role');
+
+                    try {
+                        await window.ncnSubmitForm(form, { formId: 'intake' });
+                        form.style.display = 'none';
+                        document.getElementById('form-progress').style.display = 'none';
+                        document.getElementById('form-success').classList.add('show');
+                        window.scrollTo({ top: 300, behavior: 'smooth' });
+                    } catch (err) {
+                        statusMsg.textContent = err.message;
+                        statusMsg.className = 'form-status form-error';
+                        statusMsg.setAttribute('role', 'alert');
+                        if (submitBtn) {
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                        }
+                    }
+                });
+            }
+
+            // Progress step click navigation
+            progressSteps.forEach((step, index) => {
+                step.addEventListener('click', function () {
+                    const stepNum = index + 1;
+                    // Only allow clicking on completed or current step
+                    if (stepNum <= currentStep) {
+                        showStep(stepNum);
+                    }
+                });
+                step.style.cursor = 'pointer';
+            });
+        });
+    </script>
+</body>
+
+</html>

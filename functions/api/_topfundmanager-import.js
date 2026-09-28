@@ -1,5 +1,6 @@
 const INTERNAL_FIELDS = new Set([
-  '_timestamp', 'website', 'url', 'company_url', 'form_timestamp'
+  '_timestamp', 'website', 'url', 'company_url', 'company', 'fax',
+  'homepage', 'form_started_at', 'form_id'
 ]);
 
 function cleanString(value) {
@@ -29,7 +30,7 @@ export async function forwardSubmissionToTopFundManager(env, request, options) {
   const apiKey = cleanString(env.TOPFUNDMANAGER_FORMS_API_KEY);
 
   if (!apiKey) {
-    return;
+    throw new Error('TopFundManager import key is not configured');
   }
 
   const sourcePageUrl = request.headers.get('referer') || '';
