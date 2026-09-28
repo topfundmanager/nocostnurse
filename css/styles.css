@@ -1664,8 +1664,9 @@ tr:hover td {
    FOOTER
    ===================================================== */
 .site-footer {
-  background: var(--color-gray-900);
-  color: var(--color-gray-300);
+  background: var(--color-white);
+  color: var(--color-gray-700);
+  border-top: 1px solid var(--color-gray-200);
   padding-top: var(--space-16);
 }
 
@@ -1673,7 +1674,7 @@ tr:hover td {
   display: grid;
   gap: var(--space-10);
   padding-bottom: var(--space-12);
-  border-bottom: 1px solid var(--color-gray-700);
+  border-bottom: 1px solid var(--color-gray-200);
 }
 
 @media (min-width: 768px) {
@@ -1690,7 +1691,7 @@ tr:hover td {
   font-family: var(--font-heading);
   font-size: var(--text-xl);
   font-weight: var(--font-bold);
-  color: var(--color-white);
+  color: var(--color-primary-dark);
   margin-bottom: var(--space-4);
 }
 
@@ -1708,7 +1709,7 @@ tr:hover td {
 .footer-heading {
   font-size: var(--text-base);
   font-weight: var(--font-semibold);
-  color: var(--color-white);
+  color: var(--color-primary-dark);
   margin-bottom: var(--space-4);
 }
 
@@ -1721,18 +1722,26 @@ tr:hover td {
 }
 
 .footer-links a {
-  color: var(--color-gray-400);
+  color: var(--color-gray-700);
   text-decoration: none;
   font-size: var(--text-sm);
   transition: color var(--transition-fast);
 }
 
 .footer-links a:hover {
-  color: var(--color-white);
+  color: var(--color-primary);
 }
 
 .footer-contact {
   font-size: var(--text-sm);
+}
+
+.footer-contact a {
+  color: var(--color-gray-700);
+}
+
+.footer-contact a:hover {
+  color: var(--color-primary);
 }
 
 .footer-contact-item {
@@ -1745,7 +1754,7 @@ tr:hover td {
   flex-shrink: 0;
   width: 20px;
   height: 20px;
-  color: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
 .footer-bottom {
@@ -1765,12 +1774,12 @@ tr:hover td {
 }
 
 .footer-legal a {
-  color: var(--color-gray-400);
+  color: var(--color-gray-700);
   text-decoration: none;
 }
 
 .footer-legal a:hover {
-  color: var(--color-white);
+  color: var(--color-primary);
 }
 
 /* =====================================================
@@ -1899,7 +1908,7 @@ tr:hover td {
   aspect-ratio: 16/10;
 }
 
-/* Keep the horizontal No Cost Nurse mark legible in the shared header and footer layout. */
+/* Size the horizontal No Cost Nurse mark in the shared header and footer layout. */
 .logo img { width: 170px; height: auto; display: block; }
-.footer-logo-img { width: 190px; max-width: 100%; height: auto; padding: 6px; border-radius: var(--radius-md); background: #fff; }
+.footer-logo-img { width: 190px; max-width: 100%; height: auto; }
 @media (max-width: 1023px) { .logo img { width: 140px; } }
